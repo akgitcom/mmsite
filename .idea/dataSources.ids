@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source source="LOCAL" name="Rails mmsite: development" uuid="0bc956e7-ce44-4fb9-92fd-fa5a564baaf0">
-    <database-info product="MySQL" version="5.6.20" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
-      <extra-name-characters>#@</extra-name-characters>
-      <identifier-quote-string>`</identifier-quote-string>
-    </database-info>
-    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
     <schema name="" catalog="information_schema"/>
     <schema name="" catalog="mysql"/>
     <schema name="" catalog="performance_schema"/>
