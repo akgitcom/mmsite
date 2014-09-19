@@ -1,5 +1,0 @@
-<% @admins.each do |b|%>
-    <%= link_to b.sbname,{:controller => "admins",:action => "show",:format=>:html,:id=>b.id} %>    <%= link_to "edit",{:controller => "admins",:action => "edit",:id=>b.id} %>  |  <%= link_to "destroy",{:controller => "admins",:action => "destroy",:id=>b.id},:method => 'delete' %>
-<% end %>
-
-<%= paginate @admins %>

@@ -1,0 +1,9 @@
+<div class="download">
+  <ul>
+    <% @downloads.each do |b|%>
+        <li><%= link_to b.title,{:controller => "downloads",:action => "show",:id => "#{b.did}", :format=>"html"} %>    <%= link_to "edit",{:controller => "downloads",:action => "edit",:id=>b.did} %>  |  <%= link_to "destroy",{:controller => "downloads",:action => "destroy",:id=>b.did},:method => 'delete' %></li>
+
+    <% end %>
+  </ul>
+<%= paginate @downloads %>
+</div>

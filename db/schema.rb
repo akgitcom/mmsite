@@ -11,126 +11,115 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140918061316) do
 
-  create_table "admins", force: true do |t|
-    t.string  "sbname",             limit: 100,             null: false
-    t.string  "sbpass",             limit: 100,             null: false
-    t.string  "sbemail",            limit: 200,             null: false
-    t.integer "sblock",             limit: 1,   default: 0, null: false
-    t.integer "created",                                    null: false
-    t.integer "current_login_date",                         null: false
-    t.integer "last_login_date",                            null: false
-    t.string  "last_login_ip",      limit: 200,             null: false
-    t.string  "last_login_area",    limit: 200,             null: false
+  create_table "articles", primary_key: "aid", force: true do |t|
+    t.string   "title",          limit: 200,        null: false
+    t.text     "description",                       null: false
+    t.text     "content",        limit: 2147483647, null: false
+    t.text     "relatedproduct",                    null: false
+    t.text     "relatedarticle",                    null: false
+    t.integer  "editor",                            null: false
+    t.integer  "browse",                            null: false
+    t.string   "keywords",                          null: false
+    t.text     "shortcontent",                      null: false
+    t.integer  "sblock",         limit: 1,          null: false
+    t.integer  "verify",         limit: 1,          null: false
+    t.integer  "sort",                              null: false
+    t.string   "searchkey",      limit: 100,        null: false
+    t.string   "img",                               null: false
+    t.string   "thumb",                             null: false
+    t.string   "seotitle",       limit: 200,        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
-  create_table "article", primary_key: "aid", force: true do |t|
-    t.string  "title",          limit: 200,        null: false
-    t.text    "description",                       null: false
-    t.text    "content",        limit: 2147483647, null: false
-    t.text    "relatedproduct",                    null: false
-    t.text    "relatedarticle",                    null: false
-    t.integer "editor",                            null: false
-    t.integer "browse",                            null: false
-    t.integer "create_time",                       null: false
-    t.integer "update_time",                       null: false
-    t.string  "keywords",                          null: false
-    t.text    "shortcontent",                      null: false
-    t.integer "sblock",         limit: 1,          null: false
-    t.integer "verify",         limit: 1,          null: false
-    t.integer "sort",                              null: false
-    t.string  "searchkey",      limit: 100,        null: false
-    t.string  "img",                               null: false
-    t.string  "thumb",                             null: false
-    t.string  "seotitle",       limit: 200,        null: false
+  create_table "categories", primary_key: "cid", force: true do |t|
+    t.integer  "pid",                     null: false
+    t.string   "title",       limit: 100, null: false
+    t.string   "keywords",                null: false
+    t.string   "description",             null: false
+    t.text     "content",                 null: false
+    t.string   "img",         limit: 200, null: false
+    t.string   "thumb",       limit: 200, null: false
+    t.integer  "sblock",      limit: 1,   null: false
+    t.integer  "sort",                    null: false
+    t.integer  "indexsort",               null: false
+    t.string   "seotitle",    limit: 200, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
-  create_table "category", primary_key: "cid", force: true do |t|
-    t.integer "pid",                     null: false
-    t.string  "title",       limit: 100, null: false
-    t.string  "keywords",                null: false
-    t.string  "description",             null: false
-    t.text    "content",                 null: false
-    t.string  "img",         limit: 200, null: false
-    t.string  "thumb",       limit: 200, null: false
-    t.integer "sblock",      limit: 1,   null: false
-    t.integer "sort",                    null: false
-    t.integer "create_time",             null: false
-    t.integer "update_time",             null: false
-    t.integer "indexsort",               null: false
-    t.string  "seotitle",    limit: 200, null: false
+  create_table "downloads", id: false, force: true do |t|
+    t.integer  "did",                                null: false
+    t.string   "title",           limit: 200,        null: false
+    t.text     "description",                        null: false
+    t.text     "content",         limit: 2147483647, null: false
+    t.text     "relatedproduct",                     null: false
+    t.text     "relateddownload",                    null: false
+    t.integer  "editor",                             null: false
+    t.integer  "browse",                             null: false
+    t.string   "keywords",                           null: false
+    t.text     "shortcontent",                       null: false
+    t.integer  "sblock",          limit: 1,          null: false
+    t.integer  "verify",          limit: 1,          null: false
+    t.integer  "sort",                               null: false
+    t.string   "searchkey",       limit: 100,        null: false
+    t.string   "img",                                null: false
+    t.string   "thumb",                              null: false
+    t.string   "seotitle",        limit: 200,        null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
-  create_table "download", id: false, force: true do |t|
-    t.integer "did",                                null: false
-    t.string  "title",           limit: 200,        null: false
-    t.text    "description",                        null: false
-    t.text    "content",         limit: 2147483647, null: false
-    t.text    "relatedproduct",                     null: false
-    t.text    "relateddownload",                    null: false
-    t.integer "editor",                             null: false
-    t.integer "browse",                             null: false
-    t.integer "create_time",                        null: false
-    t.integer "update_time",                        null: false
-    t.string  "keywords",                           null: false
-    t.text    "shortcontent",                       null: false
-    t.integer "sblock",          limit: 1,          null: false
-    t.integer "verify",          limit: 1,          null: false
-    t.integer "sort",                               null: false
-    t.string  "searchkey",       limit: 100,        null: false
-    t.string  "img",                                null: false
-    t.string  "thumb",                              null: false
-    t.string  "seotitle",        limit: 200,        null: false
-  end
-
-  create_table "faq", primary_key: "fid", force: true do |t|
-    t.string  "title",          limit: 200,        null: false
-    t.text    "description",                       null: false
-    t.text    "content",        limit: 2147483647, null: false
-    t.text    "relatedproduct",                    null: false
-    t.text    "relatedarticle",                    null: false
-    t.string  "editor",         limit: 50,         null: false
-    t.integer "browse",                            null: false
-    t.integer "create_time",                       null: false
-    t.integer "update_time",                       null: false
-    t.string  "keywords",       limit: 250,        null: false
-    t.text    "shortcontent",                      null: false
-    t.string  "img",                               null: false
-    t.string  "thumb",                             null: false
-    t.integer "sblock",         limit: 1,          null: false
-    t.integer "sort",                              null: false
-    t.string  "searchkey",      limit: 200,        null: false
-    t.integer "verify",         limit: 1,          null: false
+  create_table "faqs", primary_key: "fid", force: true do |t|
+    t.string   "title",          limit: 200,        null: false
+    t.text     "description",                       null: false
+    t.text     "content",        limit: 2147483647, null: false
+    t.text     "relatedproduct",                    null: false
+    t.text     "relatedarticle",                    null: false
+    t.string   "editor",         limit: 50,         null: false
+    t.integer  "browse",                            null: false
+    t.string   "keywords",       limit: 250,        null: false
+    t.text     "shortcontent",                      null: false
+    t.string   "img",                               null: false
+    t.string   "thumb",                             null: false
+    t.integer  "sblock",         limit: 1,          null: false
+    t.integer  "sort",                              null: false
+    t.string   "searchkey",      limit: 200,        null: false
+    t.integer  "verify",         limit: 1,          null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "guestbook", primary_key: "gid", force: true do |t|
-    t.integer "create_time",                                null: false
-    t.integer "update_time",                                null: false
-    t.string  "title",              limit: 100,             null: false
-    t.string  "content",            limit: 100,             null: false
-    t.string  "cname",              limit: 100,             null: false
-    t.string  "caddress",           limit: 100,             null: false
-    t.integer "zipcode",                                    null: false
-    t.string  "contacts",           limit: 100,             null: false
-    t.string  "phone",              limit: 100,             null: false
-    t.string  "email",              limit: 100,             null: false
-    t.string  "guestip",            limit: 200,             null: false
-    t.string  "guestarea",          limit: 200,             null: false
-    t.integer "replay_user_id",                             null: false
-    t.text    "replay_content",                             null: false
-    t.integer "replay_update_time",                         null: false
-    t.integer "sblock",             limit: 1,   default: 1, null: false
+    t.string   "title",              limit: 100,             null: false
+    t.string   "content",            limit: 100,             null: false
+    t.string   "cname",              limit: 100,             null: false
+    t.string   "caddress",           limit: 100,             null: false
+    t.integer  "zipcode",                                    null: false
+    t.string   "contacts",           limit: 100,             null: false
+    t.string   "phone",              limit: 100,             null: false
+    t.string   "email",              limit: 100,             null: false
+    t.string   "guestip",            limit: 200,             null: false
+    t.string   "guestarea",          limit: 200,             null: false
+    t.integer  "replay_user_id",                             null: false
+    t.text     "replay_content",                             null: false
+    t.integer  "replay_update_time",                         null: false
+    t.integer  "sblock",             limit: 1,   default: 1, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   create_table "links", primary_key: "lid", force: true do |t|
-    t.integer "sort",                    null: false
-    t.string  "title",       limit: 200, null: false
-    t.string  "img",                     null: false
-    t.integer "update_time",             null: false
-    t.integer "sblock",      limit: 1,   null: false
-    t.string  "href",                    null: false
-    t.string  "description", limit: 200, null: false
+    t.integer  "sort",                    null: false
+    t.string   "title",       limit: 200, null: false
+    t.string   "img",                     null: false
+    t.integer  "sblock",      limit: 1,   null: false
+    t.string   "href",                    null: false
+    t.string   "description", limit: 200, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "operation_log", primary_key: "operation_log", force: true do |t|
@@ -142,26 +131,26 @@ ActiveRecord::Schema.define(version: 0) do
 
   add_index "operation_log", ["operation_uid", "operation_node", "operation_log"], name: "index_uid_node", using: :btree
 
-  create_table "product", primary_key: "pid", force: true do |t|
-    t.string  "title",          limit: 200,             null: false
-    t.string  "seotitle",       limit: 200,             null: false
-    t.integer "category",                               null: false
-    t.string  "keywords",       limit: 200,             null: false
-    t.string  "description",    limit: 200,             null: false
-    t.string  "img",            limit: 200,             null: false
-    t.string  "thumb",                                  null: false
-    t.text    "shortcontent",                           null: false
-    t.text    "content",                                null: false
-    t.integer "create_time",                            null: false
-    t.integer "update_time",                            null: false
-    t.text    "relatedproduct",                         null: false
-    t.text    "relatedfaq",                             null: false
-    t.integer "sblock",         limit: 1,               null: false
-    t.integer "sort",                       default: 0, null: false
-    t.integer "homepage",       limit: 1,               null: false
-    t.string  "searchkey",      limit: 200,             null: false
-    t.integer "verify",         limit: 1,               null: false
-    t.integer "browse",                                 null: false
+  create_table "products", primary_key: "pid", force: true do |t|
+    t.string   "title",          limit: 200,             null: false
+    t.string   "seotitle",       limit: 200,             null: false
+    t.integer  "category",                               null: false
+    t.string   "keywords",       limit: 200,             null: false
+    t.string   "description",    limit: 200,             null: false
+    t.string   "img",            limit: 200,             null: false
+    t.string   "thumb",                                  null: false
+    t.text     "shortcontent",                           null: false
+    t.text     "content",                                null: false
+    t.text     "relatedproduct",                         null: false
+    t.text     "relatedfaq",                             null: false
+    t.integer  "sblock",         limit: 1,               null: false
+    t.integer  "sort",                       default: 0, null: false
+    t.integer  "homepage",       limit: 1,               null: false
+    t.string   "searchkey",      limit: 200,             null: false
+    t.integer  "verify",         limit: 1,               null: false
+    t.integer  "browse",                                 null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "update_at",                              null: false
   end
 
   create_table "robot", primary_key: "rid", force: true do |t|
@@ -213,5 +202,25 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "guestbook_description",             null: false
     t.integer "update_time",                       null: false
   end
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+  end
+
+  add_index "users", ["email"], name: "index_j_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_j_users_on_reset_password_token", unique: true, using: :btree
 
 end
