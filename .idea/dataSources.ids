@@ -2188,4 +2188,7 @@
   <data-source source="LOCAL" name="Rails mmsite: production" uuid="217fb20b-6de0-4abe-9514-8f53a8947a8b">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails mmsite: default" uuid="619b2b77-0db2-4f1b-afb0-fa942a1ecbb4">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

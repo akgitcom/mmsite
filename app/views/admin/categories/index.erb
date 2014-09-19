@@ -1,0 +1,9 @@
+<div class="category">
+  <ul>
+    <% @categories.each do |b|%>
+        <li><%= link_to b.title,{:controller => "categories",:action => "show",:id => "#{b.cid}", :format=>"html"} %>    <%= link_to "edit",{:controller => "categories",:action => "edit",:id=>b.cid} %>  |  <%= link_to "destroy",{:controller => "categories",:action => "destroy",:id=>b.cid},:method => 'delete' %></li>
+
+    <% end %>
+  </ul>
+<%= paginate @categories %>
+</div>

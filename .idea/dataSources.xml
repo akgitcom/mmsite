@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="472059241">
+  <component name="DataSourceManagerImpl" format="xml" hash="722809366">
     <data-source source="LOCAL" name="Rails mmsite: development" uuid="0bc956e7-ce44-4fb9-92fd-fa5a564baaf0">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
@@ -11,13 +11,22 @@
     <data-source source="LOCAL" name="Rails mmsite: test" uuid="c3c79be0-9443-4b52-b409-9d7fe93dae11">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/db/test.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:mysql://127.0.0.1/rails</jdbc-url>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails mmsite: production" uuid="217fb20b-6de0-4abe-9514-8f53a8947a8b">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1/db/production.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:mysql://127.0.0.1/rails</jdbc-url>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails mmsite: default" uuid="619b2b77-0db2-4f1b-afb0-fa942a1ecbb4">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/rails</jdbc-url>
+      <user-password>dfd8dfc5dfc5dfde</user-password>
       <libraries />
     </data-source>
   </component>

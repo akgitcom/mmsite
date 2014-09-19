@@ -162,22 +162,22 @@ ActiveRecord::Schema.define(version: 20140918061316) do
     t.integer "create_time",             null: false
   end
 
-  create_table "singlepage", primary_key: "sid", force: true do |t|
-    t.string  "title",          limit: 200,        null: false
-    t.text    "description",                       null: false
-    t.text    "content",        limit: 2147483647, null: false
-    t.text    "relatedproduct",                    null: false
-    t.text    "relatednews",                       null: false
-    t.string  "editor",         limit: 50,         null: false
-    t.integer "browse",                            null: false
-    t.integer "create_time",                       null: false
-    t.integer "update_time",                       null: false
-    t.string  "keywords",       limit: 200,        null: false
-    t.text    "shortcontent",                      null: false
-    t.integer "sblock",         limit: 1,          null: false
-    t.integer "sort",                              null: false
-    t.integer "verify",         limit: 1,          null: false
-    t.string  "seotitle",       limit: 200,        null: false
+  create_table "singlepages", primary_key: "sid", force: true do |t|
+    t.string   "title",          limit: 200,        null: false
+    t.text     "description",                       null: false
+    t.text     "content",        limit: 2147483647, null: false
+    t.text     "relatedproduct",                    null: false
+    t.text     "relatednews",                       null: false
+    t.string   "editor",         limit: 50,         null: false
+    t.integer  "browse",                            null: false
+    t.string   "keywords",       limit: 200,        null: false
+    t.text     "shortcontent",                      null: false
+    t.integer  "sblock",         limit: 1,          null: false
+    t.integer  "sort",                              null: false
+    t.integer  "verify",         limit: 1,          null: false
+    t.string   "seotitle",       limit: 200,        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
   end
 
   create_table "siteconfig", primary_key: "sid", force: true do |t|
