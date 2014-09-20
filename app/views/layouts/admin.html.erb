@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>admin <%= @title %></title>
+  <title><%= @title %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-admin
+
 <% if current_user %>
     <%= link_to('退出', destroy_user_session_path, :method => :delete) %> |
     <%= link_to('修改密码', edit_registration_path(:user)) %>

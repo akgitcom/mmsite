@@ -23,17 +23,8 @@ Rails.application.routes.draw do
   resources :categories
   get '/categories/page/:page' => 'categories#index'
 
-  resources :singlepages
-  get '/singlepages/page/:page' => 'singlepages#index'
-
-  # get '/company', :controller => 'singlepages', :action => 'show', :sid => 1  都可以
-  get '/company', to: 'singlepages#show', sid: 1
-  get '/qualificatio', to: 'singlepages#show', sid: 2
-  get '/contact', to: 'singlepages#show', sid: 3
-  get '/factory', to: 'singlepages#show', sid: 4
-  get '/case', to: 'singlepages#show', sid: 5
-
   namespace :admin do
+    root to: "home#index"
     resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home
     get 'users/:id' => 'users#show'
     get '/users/page/:page' => 'users#index'
@@ -44,6 +35,17 @@ Rails.application.routes.draw do
     get '/categories/page/:page' => 'categories#index'
     get '/singlepages/page/:page' => 'singlepages#index'
   end
+
+
+  resources :singlepages
+  get '/singlepages/page/:page' => 'singlepages#index'
+  # get '/company', :controller => 'singlepages', :action => 'show', :sid => 1  都可以
+  get '/company', to: 'singlepages#show', sid: 1
+  get '/qualificatio', to: 'singlepages#show', sid: 2
+  get '/contact', to: 'singlepages#show', sid: 3
+  get '/factory', to: 'singlepages#show', sid: 4
+  get '/case', to: 'singlepages#show', sid: 5
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

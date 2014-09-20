@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < Admin::ApplicationController
   before_filter :authenticate_user!
   def index
     @products = Product.order("pid DESC").page(params[:page]).per(5)

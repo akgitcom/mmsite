@@ -1,4 +1,4 @@
-class Admin::DownloadsController < ApplicationController
+class Admin::DownloadsController < Admin::ApplicationController
   before_filter :authenticate_user!
   def index
     @downloads = Download.order("did DESC").page(params[:page]).per(5)

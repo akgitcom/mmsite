@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::ApplicationController
   before_filter :authenticate_user!, :except => []
   def index
     @users = User.order("id DESC").page(params[:page]).per(1)

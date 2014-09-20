@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::ApplicationController
   before_filter :authenticate_user!
   def index
     @categories = Category.order("cid DESC").page(params[:page]).per(5)

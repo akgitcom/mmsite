@@ -1,4 +1,4 @@
-class Admin::FaqsController < ApplicationController
+class Admin::FaqsController < Admin::ApplicationController
   before_filter :authenticate_user!
   def index
     @faqs = Faq.order("fid DESC").page(params[:page]).per(5)

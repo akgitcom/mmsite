@@ -1,4 +1,4 @@
-class Admin::ArticlesController < ApplicationController
+class Admin::ArticlesController < Admin::ApplicationController
   before_filter :authenticate_user!
   def index
     @articles = Article.order("aid DESC").page(params[:page]).per(5)
