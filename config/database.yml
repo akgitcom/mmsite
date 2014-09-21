@@ -11,7 +11,7 @@ default: &default
   host: 127.0.0.1
   database: rails
   useranme: root
-  password: root
+  password: 
 
 development:
   <<: *default

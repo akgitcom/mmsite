@@ -1,4 +1,11 @@
-<%= @singlepage.inspect %>
 <div class="content">
-  <%= sanitize CGI.unescapeHTML(@singlepage.content),tags: %w(table tr td), attributes: %w(id class) %>
+  <%= safe_content(@singlepage.content) %>
 </div>
+<%= form_for [:admin, @singlepage] do |f| -%>
+    <%= label_tag(:title, "标题") %>
+    <%= text_field(:singlepage,:title) %>
+
+    <%= f.cktext_area :shortcontent, :class => 'content', :ckeditor => {:language => 'zh-CN'} %>
+    <%= f.cktext_area :content, :class => 'content', :ckeditor => {:language => 'zh-CN'} %>
+    <%= f.submit %>
+<% end -%>
