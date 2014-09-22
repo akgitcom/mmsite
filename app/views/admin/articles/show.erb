@@ -1,1 +1,2 @@
-<%= sanitize CGI.unescapeHTML(@article.content),tags: %w(table tr td), attributes: %w(id class) %>
+<%= sanitize @article.content %>
+<%= @article.products.size %>

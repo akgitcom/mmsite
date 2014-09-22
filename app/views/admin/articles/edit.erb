@@ -1,14 +1,13 @@
-
-<%= form_for [:admin, @singlepage] do |f| -%>
+<%= form_for [:admin, @article] do |f| -%>
     <%= label_tag(:title, "SEO标题") %>
-    <%= text_field(:singlepage,:seotitle) %> <br/>
+    <%= text_field(:article,:seotitle) %> <br/>
     <%= label_tag(:title, "SEO关键字") %>
-    <%= text_field(:singlepage,:keywords) %><br/>
+    <%= text_field(:article,:keywords) %><br/>
     <%= label_tag(:title, "SEO描述") %>
-    <%= text_area(:singlepage, :description, cols: 20, rows: 4) %><br/>
+    <%= text_area(:article, :description, cols: 20, rows: 4) %><br/>
 
     <%= label_tag(:title, "标题") %>
-    <%= text_field(:singlepage,:title) %><br/>
+    <%= text_field(:article,:title) %><br/>
     <%= label_tag(:title, "简述") %>
     <%= f.cktext_area :shortcontent, :class => 'content', :ckeditor => {:language => 'zh-CN'} %><br/>
     <%= label_tag(:title, "内容") %>
@@ -18,7 +17,10 @@
     <%= f.number_field :sort %><br/>
 
     <%= label_tag(:title, "锁定") %>
-    <%= f.check_box :sblock, {} ,1,false%><br/>
+    <%= f.check_box :sblock, {} ,1,false %><br/>
 
+    <%= f.select :product_ids, Product.all.collect {|x| [x.title, x.pid]},
+                 {:selected => @relateproducts.all.collect{ |u|u.pid}},
+                 {:multiple => true,size: 10} %><br/>
     <%= f.submit %>
 <% end -%>

@@ -22,6 +22,6 @@ class Admin::SinglepagesController < Admin::ApplicationController
   end
   private
   def singlepage_params
-    params.require(:singlepage).permit(:title, :shortcontent, :content)
+    params.require(:singlepage).permit(:seotitle, :keywords, :description, :title, :shortcontent, :content, :sort, :sblock)
   end
 end

@@ -1,4 +1,3 @@
-<%= @singlepage.inspect %>
 <div class="content">
-  <%= sanitize CGI.unescapeHTML(@singlepage.content),tags: %w(table tr td), attributes: %w(id class) %>
+  <%= sanitize @singlepage.content %>
 </div>

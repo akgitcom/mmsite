@@ -7,15 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-admin
-<% if current_user %>
-    <%= link_to('退出', destroy_user_session_path, :method => :delete) %> |
-    <%= link_to('修改密码', edit_registration_path(:user)) %>
-    <%= link_to('编辑', user_path(current_user.id))%>
-<% else %>
-    <%= link_to('注册', new_registration_path(:user)) %> |
-    <%= link_to('登录', new_session_path(:user)) %>
-<% end %><span></span>
+/admin/layouts/application.html.erb
+
 <%= yield %>
 <% flash.each do |key,value| %>
     <div class="alert alert-<%= key %>">

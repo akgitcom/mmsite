@@ -35,6 +35,9 @@ Rails.application.routes.draw do
     get '/faqs/page/:page' => 'faqs#index'
     get '/categories/page/:page' => 'categories#index'
     get '/singlepages/page/:page' => 'singlepages#index'
+    resources :articles do
+      resources :products
+    end
   end
 
 
