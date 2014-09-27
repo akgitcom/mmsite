@@ -1,7 +1,7 @@
 <div class="singlepage">
   <ul>
     <% @singlepages.each do |b|%>
-        <li><%= link_to b.title,{:controller => "singlepages",:action => "show",:id => "#{b.sid}", :format=>"html"} %>    <%= link_to "edit",{:controller => "singlepages",:action => "edit",:id=>b.sid} %>  |  <%= link_to "destroy",{:controller => "singlepages",:action => "destroy",:id=>b.sid},:method => 'delete' %></li>
+        <li><%= link_to b.title,"/#{b.routename}", :format=>"html" %>    <%= link_to "edit",{:controller => "singlepages",:action => "edit",:id=>b.sid} %>  |  <%= link_to "destroy",{:controller => "singlepages",:action => "destroy",:id=>b.sid},:method => 'delete' %></li>
 
     <% end %>
   </ul>

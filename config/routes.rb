@@ -44,13 +44,13 @@ Rails.application.routes.draw do
   resources :singlepages
   get '/singlepages/page/:page' => 'singlepages#index'
   # get '/company', :controller => 'singlepages', :action => 'show', :sid => 1  都可以
-  get '/company', to: 'singlepages#show', sid: 1
-  get '/qualificatio', to: 'singlepages#show', sid: 2
-  get '/contact', to: 'singlepages#show', sid: 3
-  get '/factory', to: 'singlepages#show', sid: 4
-  get '/case', to: 'singlepages#show', sid: 5
+  # get '/company', to: 'singlepages#show', sid: 1
+  # get '/qualificatio', to: 'singlepages#show', sid: 2
+  # get '/contact', to: 'singlepages#show', sid: 3
+  # get '/factory', to: 'singlepages#show', sid: 4
+  # get '/case', to: 'singlepages#show', sid: 5
 
-
+  DynamicRouter.load
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

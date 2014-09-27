@@ -4,4 +4,10 @@ class Article < ActiveRecord::Base
   #          :class_name => "Product",
   #          :foreign_key => "article_id"
   has_and_belongs_to_many :products
+
+  after_save :reload_routes
+
+  def reload_routes
+    DynamicRouter.reload
+  end
 end
