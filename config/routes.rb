@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
+  get 'not_found' => 'pages#not_found'
 
   resources :users
   get 'users/:id' => 'users#show'
