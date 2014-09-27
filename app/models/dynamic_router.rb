@@ -9,6 +9,6 @@ class DynamicRouter
   end
 
   def self.reload
-    Rails::Application.routes_reloader.reload!
+    Rails.application.routes_reloader.reload!
   end
 end
