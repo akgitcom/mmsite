@@ -43,19 +43,20 @@ ActiveRecord::Schema.define(version: 20140921080827) do
   end
 
   create_table "categories", primary_key: "cid", force: true do |t|
-    t.integer  "pid",                     null: false
-    t.string   "title",       limit: 100, null: false
-    t.string   "keywords",                null: false
-    t.string   "description",             null: false
-    t.text     "content",                 null: false
-    t.string   "img",         limit: 200, null: false
-    t.string   "thumb",       limit: 200, null: false
-    t.integer  "sblock",      limit: 1,   null: false
-    t.integer  "sort",                    null: false
-    t.integer  "indexsort",               null: false
-    t.string   "seotitle",    limit: 200, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "pid",                     default: 0, null: false
+    t.string   "title",       limit: 100,             null: false
+    t.string   "keywords",                            null: false
+    t.string   "description",                         null: false
+    t.text     "content",                             null: false
+    t.string   "img",         limit: 200,             null: false
+    t.string   "thumb",       limit: 200
+    t.integer  "sblock",      limit: 1,   default: 0, null: false
+    t.integer  "sort",                                null: false
+    t.integer  "indexsort",               default: 0, null: false
+    t.string   "seotitle",    limit: 200,             null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "routename",                           null: false
   end
 
   create_table "ckeditor_assets", force: true do |t|

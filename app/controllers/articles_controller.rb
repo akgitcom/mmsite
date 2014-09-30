@@ -5,5 +5,6 @@ class ArticlesController < ApplicationController
   end
   def show
     @article = Article.find_by_aid(params[:id])
+    redirect_to not_found_path unless @article
   end
 end

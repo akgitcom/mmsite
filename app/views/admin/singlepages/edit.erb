@@ -17,6 +17,9 @@
     <%= label_tag(:title, "排序") %>
     <%= f.number_field :sort %><br/>
 
+    <%= label_tag(:title, "路由名称") %>
+    <%= text_field(:singlepage,:routename) %><br/>
+
     <%= label_tag(:title, "锁定") %>
     <%= f.check_box :sblock, {} ,1,false%><br/>
 

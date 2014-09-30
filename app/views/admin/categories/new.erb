@@ -1,0 +1,30 @@
+<%= form_for [:admin, @category], :html => {:multipart => true} do |f| -%>
+    <%= label_tag(:title, "SEO标题") %>
+    <%= text_field(:category,:seotitle) %> <br/>
+
+    <%= label_tag(:title, "SEO关键字") %>
+    <%= text_field(:category,:keywords) %><br/>
+
+    <%= label_tag(:title, "SEO描述") %>
+    <%= text_area(:category, :description, cols: 20, rows: 4) %><br/>
+
+    <%= label_tag(:title, "标题") %>
+    <%= text_field(:category,:title) %><br/>
+
+    <%= label_tag(:title, "图片") %>
+    <%= file_field(:category, :img) %><br/>
+
+    <%= label_tag(:title, "内容") %>
+    <%= f.cktext_area :content, :class => 'content', :ckeditor => {:language => 'zh-CN'} %><br/>
+
+    <%= label_tag(:title, "排序") %>
+    <%= f.number_field :sort %><br/>
+
+    <%= label_tag(:title, "路由名称") %>
+    <%= text_field(:category, :routename) %><br/>
+
+    <%= label_tag(:title, "锁定") %>
+    <%= f.check_box :sblock, {} ,1,false %><br/>
+
+    <%= f.submit %>
+<% end -%>

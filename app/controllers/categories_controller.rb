@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.order("cid DESC").page(params[:page]).per(5)
+    @category = Category.order("cid DESC").page(params[:page]).per(5)
     @title = 'Category manage'
 
     @c = Category.all
@@ -10,6 +10,7 @@ class CategoriesController < ApplicationController
     }
   end
   def show
-    @categories = Category.find_by_cid(params[:id])
+    @category = Category.find_by_cid(params[:cid])
+    redirect_to not_found_path unless @category
   end
 end
