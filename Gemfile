@@ -34,6 +34,7 @@ gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ruby-pinyin'
+gem 'acts_as_tree', '~> 2.1.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

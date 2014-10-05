@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts_as_tree (2.1.0)
+      activerecord (>= 3.0.0)
     arel (5.0.1.20140414130214)
     bcrypt (3.1.7)
     builder (3.2.2)
@@ -45,10 +47,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.8.0)
-    devise (3.3.0)
+    devise (3.4.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
+      responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
@@ -100,6 +103,8 @@ GEM
     rake (10.3.2)
     rdoc (4.1.2)
       json (~> 1.4)
+    responders (1.1.1)
+      railties (>= 3.2, < 4.2)
     rmmseg-cpp (0.2.9)
     ruby-pinyin (0.4.2)
       rmmseg-cpp (~> 0.2)
@@ -129,7 +134,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.3.0)
+    turbolinks (2.4.0)
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
@@ -143,6 +148,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_tree (~> 2.1.0)
   carrierwave
   ckeditor
   coffee-rails (~> 4.0.0)

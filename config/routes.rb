@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   get 'not_found' => 'pages#not_found'
 
   resources :users
-  get 'users/:id' => 'users#show'
+  get '/users/:id' => 'users#show'
   resources :articles
   get '/articles/page/:page' => 'articles#index'
-
+  get '/ae:aid'=> 'article#show', aid:14
   resources :products
   get '/products/page/:page' => 'products#index'
 
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: "home#index"
     resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home
-    get 'users/:id' => 'users#show'
+    get '/users/:id' => 'users#show'
     get '/users/page/:page' => 'users#index'
     get '/articles/page/:page' => 'articles#index'
     get '/products/page/:page' => 'products#index'

@@ -30,7 +30,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   def destroy
     category = Category.find_by(cid: params[:id])
     if category.destroy
-      redirect_to [:admin, @category]
+      redirect_to [:admin, category]
     end
   end
   def edit

@@ -1,7 +1,15 @@
+<% top = Category.find_by_pid(1) %>
+<%top.children.each do |child| %>
+    <%= child.parent.title + " is my parent. I am " + child.title + "<br>"%>
+<% end %>
 <div class="category">
   <ul>
     <% @categories.each do |b|%>
-        <li><%= image_tag(b.img.thumb) if b.img? %><%= link_to b.title,{:controller => "categories",:action => "show",:id => "#{b.cid}", :format=>"html"} %>    <%= link_to "edit",{:controller => "categories",:action => "edit",:id=>b.cid} %>  |  <%= link_to "destroy",{:controller => "categories",:action => "destroy",:id=>b.cid},:method => 'delete' %></li>
+        <li>
+          <%= image_tag(b.img.thumb) if b.img? %><%= link_to b.title,{:controller => "categories",:action => "show",:id => "#{b.cid}", :format=>"html"} %>
+          <%= link_to "edit",{:controller => "categories",:action => "edit",:id=>b.cid} %>
+          <%= link_to "destroy",{:controller => "categories",:action => "destroy",:id=>b.cid},:method => 'delete' %>
+        </li>
     <% end %>
   </ul>
 <%= paginate @categories %>
