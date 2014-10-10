@@ -5,10 +5,12 @@ class CategoryUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+  self.qiniu_can_overwrite = true
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
   # storage :fog
+  storage :qiniu
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -51,7 +53,9 @@ class CategoryUploader < CarrierWave::Uploader::Base
   # end
   def filename
     if @filename
-      Time.now.to_i.to_s + File.extname(@filename)
+      # Time.now.to_i.to_s + File.extname(@filename)
+      Digest::SHA1.hexdigest(original_filename) + File.extname(@filename)
+      # "#{@name}.#{file.extension}"
     end
   end
 

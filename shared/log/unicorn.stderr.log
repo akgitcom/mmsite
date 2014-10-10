@@ -1,0 +1,84 @@
+I, [2014-10-08T12:49:46.403055 #2834]  INFO -- : Refreshing Gem list
+I, [2014-10-08T12:49:48.250559 #2834]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-08T12:49:48.250879 #2834]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-08T12:49:48.251022 #2834]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-08T12:49:48.255065 #2834]  INFO -- : master process ready
+I, [2014-10-08T12:49:48.269003 #2836]  INFO -- : worker=1 ready
+I, [2014-10-08T12:49:48.269182 #2838]  INFO -- : worker=3 ready
+I, [2014-10-08T12:49:48.268966 #2837]  INFO -- : worker=2 ready
+I, [2014-10-08T12:49:48.269001 #2835]  INFO -- : worker=0 ready
+I, [2014-10-08T13:24:46.900356 #3032]  INFO -- : Refreshing Gem list
+I, [2014-10-08T13:24:48.313297 #3032]  INFO -- : unlinking existing socket=/private/var/www/rails/.unicorn.sock
+I, [2014-10-08T13:24:48.313524 #3032]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-08T13:24:48.313815 #3032]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-08T13:24:48.313963 #3032]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-08T13:24:48.317506 #3032]  INFO -- : master process ready
+I, [2014-10-08T13:24:48.321785 #3033]  INFO -- : worker=0 ready
+I, [2014-10-08T13:24:48.322729 #3034]  INFO -- : worker=1 ready
+I, [2014-10-08T13:24:48.323503 #3035]  INFO -- : worker=2 ready
+I, [2014-10-08T13:24:48.325164 #3036]  INFO -- : worker=3 ready
+I, [2014-10-08T13:36:11.846065 #3185]  INFO -- : Refreshing Gem list
+I, [2014-10-08T13:36:13.241629 #3185]  INFO -- : unlinking existing socket=/private/var/www/rails/.unicorn.sock
+I, [2014-10-08T13:36:13.241843 #3185]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-08T13:36:13.242134 #3185]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-08T13:36:13.242275 #3185]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-08T13:36:13.245558 #3185]  INFO -- : master process ready
+I, [2014-10-08T13:36:13.250473 #3186]  INFO -- : worker=0 ready
+I, [2014-10-08T13:36:13.250473 #3187]  INFO -- : worker=1 ready
+I, [2014-10-08T13:36:13.251664 #3188]  INFO -- : worker=2 ready
+I, [2014-10-08T13:36:13.253295 #3189]  INFO -- : worker=3 ready
+I, [2014-10-08T13:47:38.303948 #3272]  INFO -- : Refreshing Gem list
+I, [2014-10-08T13:47:39.717316 #3272]  INFO -- : unlinking existing socket=/private/var/www/rails/.unicorn.sock
+I, [2014-10-08T13:47:39.717521 #3272]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-08T13:47:39.717822 #3272]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-08T13:47:39.717979 #3272]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-08T13:47:39.721044 #3272]  INFO -- : master process ready
+I, [2014-10-08T13:47:39.727530 #3274]  INFO -- : worker=1 ready
+I, [2014-10-08T13:47:39.727907 #3275]  INFO -- : worker=2 ready
+I, [2014-10-08T13:47:39.729885 #3276]  INFO -- : worker=3 ready
+I, [2014-10-08T13:47:39.731823 #3273]  INFO -- : worker=0 ready
+I, [2014-10-08T13:58:31.009830 #3309]  INFO -- : Refreshing Gem list
+I, [2014-10-08T13:58:32.450100 #3309]  INFO -- : unlinking existing socket=/private/var/www/rails/.unicorn.sock
+I, [2014-10-08T13:58:32.450362 #3309]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-08T13:58:32.450683 #3309]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-08T13:58:32.450843 #3309]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-08T13:58:32.454640 #3309]  INFO -- : master process ready
+I, [2014-10-08T13:58:32.460396 #3312]  INFO -- : worker=2 ready
+I, [2014-10-08T13:58:32.460473 #3311]  INFO -- : worker=1 ready
+I, [2014-10-08T13:58:32.460872 #3310]  INFO -- : worker=0 ready
+I, [2014-10-08T13:58:32.463086 #3313]  INFO -- : worker=3 ready
+I, [2014-10-08T17:29:12.467032 #3309]  INFO -- : reaped #<Process::Status: pid 3313 exit 0> worker=3
+I, [2014-10-08T17:29:12.503248 #3309]  INFO -- : reaped #<Process::Status: pid 3312 exit 0> worker=2
+I, [2014-10-08T17:29:12.503392 #3309]  INFO -- : reaped #<Process::Status: pid 3311 exit 0> worker=1
+I, [2014-10-08T17:29:12.526623 #3309]  INFO -- : reaped #<Process::Status: pid 3310 exit 0> worker=0
+I, [2014-10-08T17:29:12.527258 #3309]  INFO -- : master complete
+I, [2014-10-09T16:54:56.754913 #2881]  INFO -- : Refreshing Gem list
+I, [2014-10-09T16:55:02.916440 #2881]  INFO -- : unlinking existing socket=/private/var/www/rails/.unicorn.sock
+I, [2014-10-09T16:55:02.924652 #2881]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-09T16:55:02.925008 #2881]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-09T16:55:02.925149 #2881]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-09T16:55:02.930493 #2881]  INFO -- : master process ready
+I, [2014-10-09T16:55:02.947233 #2883]  INFO -- : worker=1 ready
+I, [2014-10-09T16:55:02.947233 #2885]  INFO -- : worker=3 ready
+I, [2014-10-09T16:55:02.947233 #2882]  INFO -- : worker=0 ready
+I, [2014-10-09T16:55:02.947353 #2884]  INFO -- : worker=2 ready
+I, [2014-10-09T17:13:04.146867 #3091]  INFO -- : Refreshing Gem list
+I, [2014-10-09T17:13:05.845714 #3091]  INFO -- : unlinking existing socket=/private/var/www/rails/.unicorn.sock
+I, [2014-10-09T17:13:05.845941 #3091]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-09T17:13:05.846231 #3091]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-09T17:13:05.846376 #3091]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-09T17:13:05.852564 #3091]  INFO -- : master process ready
+I, [2014-10-09T17:13:05.871566 #3092]  INFO -- : worker=0 ready
+I, [2014-10-09T17:13:05.871566 #3095]  INFO -- : worker=3 ready
+I, [2014-10-09T17:13:05.874835 #3094]  INFO -- : worker=2 ready
+I, [2014-10-09T17:13:05.875418 #3093]  INFO -- : worker=1 ready
+I, [2014-10-10T09:39:37.926216 #1185]  INFO -- : Refreshing Gem list
+I, [2014-10-10T09:39:43.251876 #1185]  INFO -- : unlinking existing socket=/private/var/www/rails/.unicorn.sock
+I, [2014-10-10T09:39:43.252088 #1185]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-10T09:39:43.252380 #1185]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-10T09:39:43.252518 #1185]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-10T09:39:43.257377 #1185]  INFO -- : master process ready
+I, [2014-10-10T09:39:43.267083 #1187]  INFO -- : worker=1 ready
+I, [2014-10-10T09:39:43.267204 #1186]  INFO -- : worker=0 ready
+I, [2014-10-10T09:39:43.266961 #1189]  INFO -- : worker=3 ready
+I, [2014-10-10T09:39:43.269944 #1188]  INFO -- : worker=2 ready

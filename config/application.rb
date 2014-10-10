@@ -26,6 +26,11 @@ module Mmsite
 
     # config.i18n.default_locale = :zh
     config.active_record.table_name_prefix = 'j_'
+
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.assets.precompile += Ckeditor.assets
+    config.assets.precompile += %w(ckeditor/*)
+
+    config.assets.paths << "#{Rails}/vendor/assets/fonts"
   end
 end

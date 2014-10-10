@@ -32,6 +32,7 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'ckeditor'
 gem 'carrierwave'
+gem 'carrierwave-qiniu'
 gem 'mini_magick'
 gem 'ruby-pinyin'
 gem 'acts_as_tree', '~> 2.1.0'
@@ -39,7 +40,7 @@ gem 'acts_as_tree', '~> 2.1.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

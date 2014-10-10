@@ -10,9 +10,11 @@ Rails.application.routes.draw do
 
   resources :users
   get '/users/:id' => 'users#show'
+
   resources :articles
   get '/articles/page/:page' => 'articles#index'
-  get '/ae:aid'=> 'article#show', aid:14
+  get '/ae:aid'=> 'articles#show'
+
   resources :products
   get '/products/page/:page' => 'products#index'
 
@@ -39,6 +41,7 @@ Rails.application.routes.draw do
     resources :articles do
       resources :products
     end
+    mount Ckeditor::Engine => '/ckeditor'
   end
 
 

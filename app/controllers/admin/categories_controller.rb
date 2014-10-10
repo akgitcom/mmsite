@@ -39,6 +39,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def update
+    puts params[:remove_thumb]
     @category = Category.find(params[:id])
     if @category.update(category_params)
       redirect_to [:admin, @category]
@@ -61,7 +62,8 @@ class Admin::CategoriesController < Admin::ApplicationController
         :sort,
         :seotitle,
         :routename,
-        :remove_img
+        :remove_img,
+        :remove_thumb
     )
   end
 end

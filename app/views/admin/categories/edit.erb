@@ -11,15 +11,26 @@
     <%= text_field(:category, :title) %><br/>
 
     <%= label_tag(:title, "图片") %>
-    <%= image_tag(@category.img.thumb) if @category.img? %>
+    <%= image_tag(@category.img) if @category.img? %>
     <%= file_field(:category, :img) %><br/>
 
     <p>
       <label>
         <%= f.check_box :remove_img %>
-        Remove avatar
+        Remove img
       </label>
     </p>
+
+    <%= label_tag(:title, "缩略图") %>
+    <%= image_tag(@category.img_url(:thumb)) if @category.img? %>
+    <%= file_field(:category, :thumb) %><br/>
+    <p>
+      <label>
+        <%= check_box_tag :remove_thumb %>
+        Remove img
+      </label>
+    </p>
+
 
     <%= label_tag(:title, "内容") %>
     <%= f.cktext_area :content, :class => 'content', :ckeditor => {:language => 'zh-CN'} %><br/>

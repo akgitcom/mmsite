@@ -4,7 +4,7 @@ class ArticlesController < ApplicationController
     @title = 'Article manage'
   end
   def show
-    @article = Article.find_by_aid(params[:id])
+    @article = Article.find_by_aid(params[:aid])
     redirect_to not_found_path unless @article
   end
 end

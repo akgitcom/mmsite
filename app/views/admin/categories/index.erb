@@ -6,7 +6,7 @@
   <ul>
     <% @categories.each do |b|%>
         <li>
-          <%= image_tag(b.img.thumb) if b.img? %><%= link_to b.title,{:controller => "categories",:action => "show",:id => "#{b.cid}", :format=>"html"} %>
+          <%= image_tag(b.img_url(:thumb)) if b.img? %><%= link_to b.title,{:controller => "categories",:action => "show",:id => "#{b.cid}", :format=>"html"} %>
           <%= link_to "edit",{:controller => "categories",:action => "edit",:id=>b.cid} %>
           <%= link_to "destroy",{:controller => "categories",:action => "destroy",:id=>b.cid},:method => 'delete' %>
         </li>
