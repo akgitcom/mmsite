@@ -1,1 +1,4 @@
 <%= @category.products.size %>
+<%= get_parent(@category)%>
+<%= sanitize @category.content, tags: %w(table div p span img), attributes: %w(id class style src)  %>
+<%= topinyin(@category.title).to_s%>

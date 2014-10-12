@@ -2,10 +2,28 @@ module CategoriesHelper
 
   # encoding: utf-8
   require 'ruby-pinyin'
+  def get_parent(a)
+    b=[]
+    ret = '<div>'
+    while 1
+      b << a
+      if a.parent
+        a = a.parent
+      else
+        break
+      end
+    end
+    for c in b.reverse
+      ret << " > " + c.title
+    end
+    ret << "</div>"
+  end
+
 
   def topinyin(txt)
-    PinYin.permlink(txt)
+    PinYin.abbr(txt)
   end
+
   def display_categories(categories)
     ret = "<ul>"
     for category in categories

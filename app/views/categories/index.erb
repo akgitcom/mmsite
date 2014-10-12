@@ -1,9 +1,12 @@
+<br /><% Category.walk_tree do |c, level| %>
+    <%= link_to "#{'--'*level}#{c.title}" %><br />
+<% end %>
 <div class="category">
   <ul>
-    <% @category.each do |b|%>
-        <li><%= link_to b.title,"#{b.routename}.html" %>    <%= link_to "edit",{:controller => "categories",:action => "edit",:id=>b.cid} %>  |  <%= link_to "destroy",{:controller => "categories",:action => "destroy",:id=>b.cid},:method => 'delete' %></li>
-
+    <% @categories.each do |b|%>
+        <%= image_tag(b.img_url(:thumb)) if b.img? %>
+        <li><%= link_to b.title,"#{b.routename}.html" %> </li>
     <% end %>
   </ul>
-<%= paginate @category %>
+<%= paginate @categories %>
 </div>

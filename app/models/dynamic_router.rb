@@ -7,7 +7,7 @@ class DynamicRouter
       end
       Category.all.each do |pg|
         puts "Routing #{pg.routename}"
-        get "/#{pg.routename}", :to => "categories#show", defaults: { cid: pg.cid }
+        get "/#{pg.routename}", :to => "categories#show", defaults: { id: pg.id }
       end
     end
   end

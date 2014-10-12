@@ -1,2 +1,2 @@
-<%= sanitize @article.content %>
+<%= sanitize @article.content, tags: %w(), attributes: %w(id class style) %>
 <%= @article.products.size %>
