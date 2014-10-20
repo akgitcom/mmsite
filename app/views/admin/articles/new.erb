@@ -1,9 +1,3 @@
-<div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <h1>Article Edit</h1>
-  </div>
-</div>
-<hr/>
 <%= form_for [:admin, @article], :html => {:multipart => true, class: "form-horizontal", role: "form"} do |f| -%>
     <div class="form-group">
       <%= label_tag(:seotitle, "SEO标题", for: "inputseotitle", class: "col-sm-2 control-label") %>
@@ -36,6 +30,7 @@
       <div class="col-sm-offset-2 col-sm-10">
         <div class="fileinput fileinput-new" data-provides="fileinput">
           <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+            <img data-src="holder.js/100%x100%" alt="...">
             <%= image_tag(@article.img) if @article.img? %>
           </div>
           <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
@@ -55,12 +50,16 @@
     </div>
 
     <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <div class="checkbox">
-          <label>
-            <%= f.check_box :remove_img, {}, 1, false %> 删除图片
-          </label>
-        </div>
+      <%= label_tag(:thumb, "缩略图", for: "img-thumbnail", class: "col-sm-2 control-label") %>
+      <div class="col-sm-10">
+        <%= image_tag(:img) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:img, "图片", for: "inputimg", class: "col-sm-2 control-label") %>
+      <div class="col-sm-10">
+        <%= file_field(:article, :img, class: "form-control", id: "inputimg") %>
       </div>
     </div>
 
@@ -80,19 +79,19 @@
 
     <div class="form-group">
       <%= label_tag(:sort, "排序", for: "inputsort", class: "col-sm-2 control-label") %>
-      <div class="col-sm-4">
+      <div class="col-sm-10">
         <%= text_field(:article, :sort, class: "form-control", id: "inputsort", placeholder: "sort") %>
       </div>
     </div>
     <div class="form-group">
       <%= label_tag(:searchkey, "相关新闻关键字", for: "inputsearchkey", class: "col-sm-2 control-label") %>
-      <div class="col-sm-4">
+      <div class="col-sm-10">
         <%= text_field(:article, :searchkey, class: "form-control", id: "inputsearchkey", placeholder: "searchkey") %>
       </div>
     </div>
     <div class="form-group">
       <%= label_tag(:product_ids, "相关产品", for: "inputproduct_ids", class: "col-sm-2 control-label") %>
-      <div class="col-sm-4">
+      <div class="col-sm-10">
         <%= f.select :product_ids, Product.all.collect { |x| [x.title, x.id] },
                      {:selected => @relateproducts.all.collect { |u| u.id }},
                      {:multiple => true, size: 10, class: "form-control"}

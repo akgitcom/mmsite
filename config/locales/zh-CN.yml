@@ -212,3 +212,8 @@ zh-CN:
     sessions:
       user:
         signed_in: "登陆成功"
+    failure:
+      user:
+        unauthenticated: "未认证"
+        invalid: "无效数据"
+        not_found_in_database: "无此数据"

@@ -6,5 +6,7 @@ admin singlepage
 
     <% end %>
   </ul>
-<%= paginate @singlepages %>
+  <div class="pages">
+    <%= paginate @singlepages, :theme=>'long' %>
+  </div>
 </div>

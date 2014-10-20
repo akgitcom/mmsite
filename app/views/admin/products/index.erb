@@ -1,9 +1,0 @@
-<div class="product">
-  <ul>
-    <% @products.each do |b|%>
-        <li><%= link_to b.title,{:controller => "products",:action => "show",:id => "#{b.pid}", :format=>"html"} %>    <%= link_to "edit",{:controller => "products",:action => "edit",:id=>b.pid} %>  |  <%= link_to "destroy",{:controller => "products",:action => "destroy",:id=>b.pid},:method => 'delete' %></li>
-
-    <% end %>
-  </ul>
-<%= paginate @products %>
-</div>

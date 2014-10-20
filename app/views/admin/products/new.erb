@@ -1,0 +1,41 @@
+<%= form_for [:admin, @product], :html => {:multipart => true} do |f| -%>
+    <%= label_tag(:category_id, "所属分类") %>
+    <%= f.select :category_id,
+                 nested_set_options(Category) {|i| "#{'-' * i.level} #{i.title}" },
+                 :selected => @product.category_id,
+                 :include_blank=>'===请选择==='#.inspect
+    %>
+    <%= label_tag(:title, "SEO标题") %>
+    <%= text_field(:product,:seotitle) %> <br/>
+    <%= label_tag(:title, "SEO关键字") %>
+    <%= text_field(:product,:keywords) %><br/>
+    <%= label_tag(:title, "SEO描述") %>
+    <%= text_area(:product, :description, cols: 20, rows: 4) %><br/>
+
+    <%= label_tag(:title, "标题") %>
+    <%= text_field(:product,:title) %><br/>
+    <% @product.photos.each do |q| %>
+        <%= image_tag(q.image) %>  </br>
+    <% end %>
+    <h5>选取5张图片</h5>
+
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
+
+    <%= label_tag(:shortcontent, "简述") %>
+    <%= f.cktext_area :shortcontent, :class => 'content', :ckeditor => {:language => 'zh-CN'} %><br/>
+
+    <%= label_tag(:content, "内容") %>
+    <%= f.cktext_area :content, :class => 'content', :ckeditor => {:language => 'zh-CN'} %><br/>
+
+    <%= label_tag(:sort, "排序") %>
+    <%= f.number_field :sort %><br/>
+
+    <%= label_tag(:sblock, "锁定") %>
+    <%= f.check_box :sblock, {} ,1,false %><br/>
+
+    <%= label_tag(:faq_ids, "相关技术支持") %>
+    <%= f.select :faq_ids, Faq.all.collect {|x| [x.title, x.id]},
+                 {:selected => @relatefaqs.all.collect{ |u|u.id}},
+                 {:multiple => true,size: 10} %><br/>
+    <%= f.submit %>
+<% end -%>

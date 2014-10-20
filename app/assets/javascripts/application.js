@@ -17,3 +17,4 @@
 //= require_tree .
 //= require ckeditor/init
 //= require ckeditor/ckeditor
+//= require jasny-bootstrap.min

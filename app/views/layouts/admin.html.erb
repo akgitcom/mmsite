@@ -7,7 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar navbar-default" role="navigation">
+<div class="container">
+<nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -17,20 +18,29 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">后台管理</a>
+      <a class="navbar-brand" href="#">Management Panel</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/admin/singlepages">单页</a></li>
-        <li><a href="/admin/articles">文章</a></li>
+        <li><a href="/admin/singlepages">Singlepages</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">产品<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Articles<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="/admin/products/new">添加产品</a></li>
+            <li><a href="/admin/articles">Article list</a></li>
+            <li><a href="/admin/articles/new">New article</a></li>
             <li class="divider"></li>
-            <li><a href="/admin/categories">产品分类管理</a></li>
+            <li><a href="/admin/articlescategory">Article category</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/admin/products">Products list</a></li>
+            <li><a href="/admin/products/new">New product</a></li>
+            <li class="divider"></li>
+            <li><a href="/admin/categories">Product category</a></li>
           </ul>
         </li>
       </ul>
@@ -44,7 +54,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">管理员：<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin：<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <% if current_user %>
                 <li><%= link_to('修改密码', edit_registration_path(:user)) %></li>
@@ -68,6 +78,6 @@
       <%= value %>
     </div>
 <% end %>
-
+</div>
 </body>
 </html>

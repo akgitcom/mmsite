@@ -2,7 +2,7 @@ source 'http://ruby.taobao.org/'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.5'
+gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 gem 'mysql2'
@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
+# gem 'spring',        group: :development
 gem 'devise'
 gem 'ckeditor'
 gem 'carrierwave'
@@ -41,7 +41,7 @@ gem 'acts_as_tree', '~> 2.1.0'
 
 # Use unicorn as the app server
 gem 'unicorn'
-
+gem 'awesome_nested_set'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

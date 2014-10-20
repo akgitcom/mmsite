@@ -1,10 +1,13 @@
 class Admin::CategoriesController < Admin::ApplicationController
+
   before_filter :authenticate_user!
   include CategoriesHelper
   helper_method :pinyin
+
   def index
     @categories = Category.order("id DESC").page(params[:page]).per(5)
     @title = 'Category manage'
+    Category.rebuild!
   end
 
   def show
@@ -18,23 +21,25 @@ class Admin::CategoriesController < Admin::ApplicationController
   def create
     category = Category.new(category_params)
     if category.save
-
+      flash[:notice] = "Category has been created."
     end
   end
+
   def destroy
     category = Category.find_by(id: params[:id])
     if category.destroy
       redirect_to [:admin, category]
     end
   end
+
   def edit
     @category = Category.find_by_id(params[:id])
-    @products = Product.all
+    @product = Product.all
   end
 
   def update
-    puts params[:remove_thumb]
-    @category = Category.find(params[:id])
+    puts "fuck==============================#{params[:parent_id]}"
+    @category = Category.find_by_id(params[:id])
     if @category.update(category_params)
       redirect_to [:admin, @category]
     else
@@ -45,6 +50,7 @@ class Admin::CategoriesController < Admin::ApplicationController
   private
   def category_params
     params.require(:category).permit(
+        :parent_id,
         :title,
         :keywords,
         :description,

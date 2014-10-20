@@ -5,5 +5,7 @@
 
     <% end %>
   </ul>
-<%= paginate @faqs %>
+  <div class="pages">
+    <%= paginate @faqs, :theme=>'long' %>
+  </div>
 </div>

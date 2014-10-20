@@ -82,3 +82,18 @@ I, [2014-10-10T09:39:43.267083 #1187]  INFO -- : worker=1 ready
 I, [2014-10-10T09:39:43.267204 #1186]  INFO -- : worker=0 ready
 I, [2014-10-10T09:39:43.266961 #1189]  INFO -- : worker=3 ready
 I, [2014-10-10T09:39:43.269944 #1188]  INFO -- : worker=2 ready
+I, [2014-10-13T13:46:17.228023 #2522]  INFO -- : Refreshing Gem list
+I, [2014-10-13T13:46:20.136431 #2522]  INFO -- : unlinking existing socket=/private/var/www/rails/.unicorn.sock
+I, [2014-10-13T13:46:20.165965 #2522]  INFO -- : listening on addr=/private/var/www/rails/.unicorn.sock fd=12
+I, [2014-10-13T13:46:20.166317 #2522]  INFO -- : listening on addr=0.0.0.0:8080 fd=13
+I, [2014-10-13T13:46:20.166468 #2522]  INFO -- : listening on addr=0.0.0.0:5000 fd=14
+I, [2014-10-13T13:46:20.172855 #2522]  INFO -- : master process ready
+I, [2014-10-13T13:46:20.186504 #2525]  INFO -- : worker=2 ready
+I, [2014-10-13T13:46:20.187731 #2524]  INFO -- : worker=1 ready
+I, [2014-10-13T13:46:20.187228 #2526]  INFO -- : worker=3 ready
+I, [2014-10-13T13:46:20.189715 #2523]  INFO -- : worker=0 ready
+I, [2014-10-13T16:55:46.290951 #2522]  INFO -- : reaped #<Process::Status: pid 2526 exit 0> worker=3
+I, [2014-10-13T16:55:46.415508 #2522]  INFO -- : reaped #<Process::Status: pid 2525 exit 0> worker=2
+I, [2014-10-13T16:55:46.415714 #2522]  INFO -- : reaped #<Process::Status: pid 2524 exit 0> worker=1
+I, [2014-10-13T16:55:46.415845 #2522]  INFO -- : reaped #<Process::Status: pid 2523 exit 0> worker=0
+I, [2014-10-13T16:55:46.462185 #2522]  INFO -- : master complete

@@ -1,5 +1,6 @@
-<br /><% Category.walk_tree do |c, level| %>
-    <%= link_to "#{'--'*level}#{c.title}" %><br />
+<br />
+<% Category.each_with_level(Category.root.self_and_descendants) do |c, level| %>
+  <%= link_to "#{'--'*level}#{c.title}","#{c.routename}.html" %><br />
 <% end %>
 <div class="category">
   <ul>

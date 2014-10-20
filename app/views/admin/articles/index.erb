@@ -1,9 +1,58 @@
-<div class="article">
-  <ul>
+<h1>Articles</h1>
+<a class="btn btn-primary btn-lg" href="/admin/articles/new">New Article</a>
+<div class="category">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>image</th>
+      <th>title</th>
+      <th>created_at</th>
+      <th>status</th>
+      <th>operation</th>
+    </tr>
+    </thead>
+    <tbody>
     <% @articles.each do |b|%>
-        <li><%= link_to b.title,{:controller => "articles",:action => "show",:id => "#{b.id}", :format=>"html"} %>    <%= link_to "edit",{:controller => "articles",:action => "edit",:id=>b.id} %>  |  <%= link_to "destroy",{:controller => "articles",:action => "destroy",:id=>b.id},:method => 'delete' %></li>
+        <tr>
+            <td><%= b.id %></td>
+            <td><%= image_tag(b.img_url(:thumb),width: "100") if b.img? %></td>
+            <td><%= link_to b.title,
+                        {
+                            :controller => "articles",
+                            :action => "show",
+                            :id => "#{b.id}",
+                            :format=>"html"
+                        }
+                %></td>
 
+            <td><%= b.created_at.to_s(:long) %></td>
+            <td></td>
+            <td>
+                <%= link_to "edit",
+                            {
+                                    :controller => "articles",
+                                    :action => "edit",
+                                    :id=>b.id
+                            },class: "btn btn-success"
+                %>
+                <%= link_to "destroy",
+                    {
+                        :controller => "articles",
+                        :action => "destroy",
+                        :id=>b.id
+                    },
+                    :method => 'delete',
+                    class: "btn btn-danger",
+                    data: { confirm: 'Are you sure?' }
+                %>
+            </td>
+        </tr>
     <% end %>
-  </ul>
-<%= paginate @articles %>
+
+    </tbody>
+  </table>
+  <div class="pages">
+    <%= paginate @articles, :theme=>'long' %>
+  </div>
 </div>

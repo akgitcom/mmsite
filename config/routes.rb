@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :products
   get '/products/page/:page' => 'products#index'
-
+  get '/pt:id'=> 'products#show'
   resources :downloads
   get '/downloads/page/:page' => 'downloads#index'
 
@@ -29,7 +29,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root to: "home#index"
-    resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home
+    resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home,:photos
+
     get '/users/:id' => 'users#show'
     get '/users/page/:page' => 'users#index'
     get '/articles/page/:page' => 'articles#index'

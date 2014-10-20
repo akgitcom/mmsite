@@ -1,10 +1,7 @@
 class Product < ActiveRecord::Base
-  self.primary_key = 'pid'
-  # belongs_to :article,
-  #            :class_name => "Article",
-  #            :foreign_key => "product_id"
-  belongs_to :category ,foreign_key: "cid"# 單數
+  belongs_to :category ,foreign_key: "id"
+  has_and_belongs_to_many :faqs
   has_and_belongs_to_many :articles
-  mount_uploader :avatar, ProductUploader
-
+  has_many :photos, :inverse_of => :product, :dependent => :destroy
+  mount_uploader :img, ProductUploader
 end

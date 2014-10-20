@@ -1,4 +1,9 @@
 <%= form_for [:admin, @category], :html => {:multipart => true} do |f| -%>
+    <%= label_tag(:parent_id, "所属分类") %>
+    <%= f.select :parent_id,
+                 nested_set_options(Category) {|i| "#{'-' * i.level} #{i.title}" },
+                 :include_blank=>'===请选择==='#.inspect
+    %>
     <%= label_tag(:title, "SEO标题") %>
     <%= text_field(:category,:seotitle) %> <br/>
 

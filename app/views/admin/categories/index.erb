@@ -1,12 +1,53 @@
+<h1>Category</h1>
+<a class="btn btn-primary btn-lg" href="/admin/categories/new">New Category</a>
 <div class="category">
-  <ul>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>image</th>
+        <th>title</th>
+        <th>created_at</th>
+        <th>operation</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
     <% @categories.each do |b|%>
-        <li>
-          <%= image_tag(b.img_url(:thumb)) if b.img? %><%= link_to b.title,{:controller => "categories",:action => "show",:id => "#{b.id}", :format=>"html"} %>
-          <%= link_to "edit",{:controller => "categories",:action => "edit",:id=>b.id} %>
-          <%= link_to "destroy",{:controller => "categories",:action => "destroy",:id=>b.id},:method => 'delete' %>
-        </li>
+          <tr>
+            <td><%= topinyin(b.title)%></td>
+            <td><%= image_tag(b.img_url(:thumb),width: "100") if b.img? %></td>
+            <td><%= link_to b.title,
+                            {
+                                    :controller => "categories",
+                                    :action => "show",
+                                    :id => "#{b.id}",
+                                    :format=>"html"
+                            }
+                %>
+            </td>
+            <td></td>
+            <td><%= link_to "edit",
+                            {:controller => "categories",
+                             :action => "edit",
+                             :id=>b.id
+                            },
+                            class: "btn btn-success"
+            %> <%= link_to "destroy",
+                          {:controller => "categories",
+                           :action => "destroy",
+                           :id=>b.id
+                          },
+                          class: "btn btn-danger",
+                          :method => 'delete',
+                          data: { confirm: 'Are you sure?' }
+            %>
+            </td>
+          </tr>
     <% end %>
-  </ul>
-<%= paginate @categories %>
+        </tbody>
+    </table>
+  <div class="pages">
+    <%= paginate @categories, :theme=>'long' %>
+  </div>
 </div>

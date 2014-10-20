@@ -1,0 +1,10 @@
+<%= form_for [:admin, @photo], :html => {:multipart => true} do |f| -%>
+    <%= label_tag(:title, "product_id") %>
+    <%= text_field(:photo, :product_id) %><br/>
+
+    <%= image_tag(@photo.image,height: "100") if @photo.image? %>
+    <%= file_field(:photo, :image) %><br/>
+    <%= label_tag(:sort, "排序") %>
+    <%= f.number_field :sort %><br/>
+    <%= f.submit %>
+<% end -%>
