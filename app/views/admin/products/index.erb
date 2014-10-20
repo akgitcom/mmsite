@@ -1,0 +1,68 @@
+<h1>Products</h1>
+<a class="btn btn-primary btn-lg" href="/admin/products/new">New Product</a>
+<div class="category">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>image</th>
+      <th>title</th>
+      <th>created_at</th>
+      <th>operation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @products.each do |b| %>
+        <tr>
+          <td><%= b.id %></td>
+          <td>
+            <% b.photos.order("sort ASC").each do |g| %>
+                <%= link_to(image_tag(g.image,height: "100"),
+                        {
+                            :controller => "photos",
+                            :action => "edit",
+                            :id => "#{g.id}"
+                        }
+                    ) %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to b.title,
+                        {
+                                :controller => "products",
+                                :action => "show",
+                                :id => "#{b.id}",
+                                :format => "html"
+                        }
+            %>
+          </td>
+          <td><%= b.updated_at.to_s(:long)%></td>
+          <td>
+            <%= link_to "edit",
+                        {
+                                :controller => "products",
+                                :action => "edit",
+                                :id => b.id
+                        },
+                        class: "btn btn-success"
+            %>
+            <%= link_to "destroy",
+                        {
+                                :controller => "products",
+                                :action => "destroy",
+                                :id => b.id
+                        },
+                        class: "btn btn-danger",
+                        :method => 'delete',
+                        data: { confirm: 'Are you sure?' }
+            %>
+          </td>
+        </tr>
+    <% end %>
+
+    </tbody>
+  </table>
+  <div class="pages">
+    <%= paginate @products, :theme=>'long' %>
+  </div>
+</div>
