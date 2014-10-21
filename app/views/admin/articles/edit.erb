@@ -1,10 +1,9 @@
-<div class="form-group">
-  <div class="col-sm-offset-2 col-sm-10">
-    <h1>Article Edit</h1>
-  </div>
-</div>
-<hr/>
 <%= form_for [:admin, @article], :html => {:multipart => true, class: "form-horizontal", role: "form"} do |f| -%>
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">Article Edit</legend>
+      </div>
+    </fieldset>
     <div class="form-group">
       <%= label_tag(:seotitle, "SEO标题", for: "inputseotitle", class: "col-sm-2 control-label") %>
       <div class="col-sm-6">
@@ -81,7 +80,7 @@
     <div class="form-group">
       <%= label_tag(:sort, "排序", for: "inputsort", class: "col-sm-2 control-label") %>
       <div class="col-sm-4">
-        <%= text_field(:article, :sort, class: "form-control", id: "inputsort", placeholder: "sort") %>
+        <%= f.number_field( :sort, class: "form-control", id: "inputsort", placeholder: "sort") %>
       </div>
     </div>
     <div class="form-group">
@@ -92,7 +91,7 @@
     </div>
     <div class="form-group">
       <%= label_tag(:product_ids, "相关产品", for: "inputproduct_ids", class: "col-sm-2 control-label") %>
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <%= f.select :product_ids, Product.all.collect { |x| [x.title, x.id] },
                      {:selected => @relateproducts.all.collect { |u| u.id }},
                      {:multiple => true, size: 10, class: "form-control"}

@@ -27,13 +27,16 @@
                 %>
             </td>
             <td></td>
-            <td><%= link_to "edit",
+            <td>
+              <a target="_blank" href="/<%= b.routename %>" class="btn btn-info">view</a>
+              <%= link_to "edit",
                             {:controller => "categories",
                              :action => "edit",
                              :id=>b.id
                             },
                             class: "btn btn-success"
-            %> <%= link_to "destroy",
+              %>
+              <%= link_to "destroy",
                           {:controller => "categories",
                            :action => "destroy",
                            :id=>b.id

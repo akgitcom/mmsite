@@ -17,22 +17,22 @@ ActiveRecord::Schema.define(version: 20140921080827) do
     t.string   "title",          limit: 200,        null: false
     t.text     "description",                       null: false
     t.text     "content",        limit: 2147483647, null: false
-    t.text     "relatedproduct",                    null: false
-    t.text     "relatedarticle",                    null: false
-    t.integer  "editor",                            null: false
-    t.integer  "browse",                            null: false
+    t.text     "relatedproduct"
+    t.text     "relatedarticle"
+    t.integer  "editor"
+    t.integer  "browse"
     t.string   "keywords",                          null: false
     t.text     "shortcontent",                      null: false
-    t.integer  "sblock",         limit: 1,          null: false
-    t.integer  "verify",         limit: 1,          null: false
-    t.integer  "sort",                              null: false
-    t.string   "searchkey",      limit: 100,        null: false
-    t.string   "img",                               null: false
-    t.string   "thumb",                             null: false
-    t.string   "seotitle",       limit: 200,        null: false
+    t.integer  "sblock",         limit: 1
+    t.integer  "verify",         limit: 1
+    t.integer  "sort"
+    t.string   "searchkey",      limit: 100
+    t.string   "img"
+    t.string   "thumb"
+    t.string   "seotitle",       limit: 200
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.integer  "product_id",                        null: false
+    t.integer  "product_id"
   end
 
   create_table "articles_products", id: false, force: true do |t|
@@ -42,21 +42,24 @@ ActiveRecord::Schema.define(version: 20140921080827) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "categories", primary_key: "cid", force: true do |t|
-    t.integer  "pid",                     default: 0, null: false
+  create_table "categories", force: true do |t|
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
+    t.integer  "depth"
     t.string   "title",       limit: 100,             null: false
-    t.string   "keywords",                            null: false
-    t.string   "description",                         null: false
-    t.text     "content",                             null: false
-    t.string   "img",         limit: 200,             null: false
+    t.string   "keywords"
+    t.string   "description"
+    t.text     "content"
+    t.string   "img",         limit: 200
     t.string   "thumb",       limit: 200
     t.integer  "sblock",      limit: 1,   default: 0, null: false
-    t.integer  "sort",                                null: false
+    t.integer  "sort",                    default: 0
     t.integer  "indexsort",               default: 0, null: false
-    t.string   "seotitle",    limit: 200,             null: false
+    t.string   "seotitle",    limit: 200
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "routename",                           null: false
+    t.string   "routename"
   end
 
   create_table "ckeditor_assets", force: true do |t|
@@ -117,6 +120,13 @@ ActiveRecord::Schema.define(version: 20140921080827) do
     t.datetime "updated_at",                        null: false
   end
 
+  create_table "faqs_products", id: false, force: true do |t|
+    t.integer  "faq_id",     null: false
+    t.integer  "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "guestbook", primary_key: "gid", force: true do |t|
     t.string   "title",              limit: 100,             null: false
     t.string   "content",            limit: 100,             null: false
@@ -156,15 +166,24 @@ ActiveRecord::Schema.define(version: 20140921080827) do
 
   add_index "operation_log", ["operation_uid", "operation_node", "operation_log"], name: "index_uid_node", using: :btree
 
-  create_table "products", primary_key: "pid", force: true do |t|
+  create_table "photos", force: true do |t|
+    t.integer  "product_id",                         null: false
+    t.integer  "sort",                   default: 0, null: false
+    t.string   "image",      limit: 200,             null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  create_table "products", force: true do |t|
     t.integer  "article_id",                             null: false
     t.string   "title",          limit: 200,             null: false
     t.string   "seotitle",       limit: 200,             null: false
-    t.integer  "category",                               null: false
+    t.integer  "category_id",                            null: false
     t.string   "keywords",       limit: 200,             null: false
     t.string   "description",    limit: 200,             null: false
-    t.string   "img",            limit: 200,             null: false
-    t.string   "thumb",                                  null: false
+    t.string   "img",            limit: 200
+    t.string   "img2"
+    t.string   "img3",           limit: 200
     t.text     "shortcontent",                           null: false
     t.text     "content",                                null: false
     t.text     "relatedproduct",                         null: false
@@ -175,8 +194,8 @@ ActiveRecord::Schema.define(version: 20140921080827) do
     t.string   "searchkey",      limit: 200,             null: false
     t.integer  "verify",         limit: 1,               null: false
     t.integer  "browse",                                 null: false
-    t.datetime "created_at",                             null: false
-    t.datetime "update_at",                              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "robot", primary_key: "rid", force: true do |t|

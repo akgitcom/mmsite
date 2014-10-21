@@ -27,18 +27,22 @@ Rails.application.routes.draw do
   resources :categories
   get '/categories/page/:page' => 'categories#index'
 
+  get 'admin/products/search' => 'admin/products#search'
+  get 'admin/articles/search' => 'admin/articles#search'
+
   namespace :admin do
     root to: "home#index"
-    resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home,:photos
+    resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home, :photos
 
-    get '/users/:id' => 'users#show'
-    get '/users/page/:page' => 'users#index'
-    get '/articles/page/:page' => 'articles#index'
-    get '/products/page/:page' => 'products#index'
-    get '/downloads/page/:page' => 'downloads#index'
-    get '/faqs/page/:page' => 'faqs#index'
-    get '/categories/page/:page' => 'categories#index'
-    get '/singlepages/page/:page' => 'singlepages#index'
+    get 'users/:id' => 'users#show'
+    get 'users/page/:page' => 'users#index'
+    get 'articles/page/:page' => 'articles#index'
+    get 'products/p/:page' => 'products#index'
+
+    get 'downloads/page/:page' => 'downloads#index'
+    get 'faqs/page/:page' => 'faqs#index'
+    get 'categories/page/:page' => 'categories#index'
+    get 'singlepages/page/:page' => 'singlepages#index'
     resources :articles do
       resources :products
     end

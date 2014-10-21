@@ -1,8 +1,8 @@
 <%= form_tag({controller: "admin/products", action: "search"}, method: "get", class: "navbar-form navbar-left", role: "navigation") do %>
     <div class="form-group">
-      <a class="btn btn-primary btn-lg" href="/admin/products/new">New Article</a>
+      <a class="btn btn-primary btn-lg" href="/admin/articles/new">New Article search</a>
       <input type="text" class="form-control" placeholder="请输入产品名称" id="q" name="q">
-      <input name="commit" type="submit" value="Search" class="btn btn-success">
+      <input type="submit" value="搜索" class="btn btn-success">
     </div>
 <% end %>
 <div class="category">
@@ -23,11 +23,11 @@
           <td>
             <% b.photos.order("sort ASC").each do |g| %>
                 <%= link_to(image_tag(g.image,height: "60"),
-                        {
-                            :controller => "photos",
-                            :action => "edit",
-                            :id => "#{g.id}"
-                        }
+                            {
+                                    :controller => "photos",
+                                    :action => "edit",
+                                    :id => "#{g.id}"
+                            }
                     ) %>
             <% end %>
           </td>

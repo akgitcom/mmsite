@@ -1,5 +1,10 @@
-<h1>Articles</h1>
-<a class="btn btn-primary btn-lg" href="/admin/articles/new">New Article</a>
+<%= form_tag({controller: "admin/articles", action: "search"}, method: "get", class: "navbar-form navbar-left", role: "navigation") do %>
+    <div class="form-group">
+      <a class="btn btn-primary btn-lg" href="/admin/articles/new">New Article</a>
+      <input type="text" class="form-control" placeholder="请输入产品名称" id="q" name="q">
+      <input name="commit" type="submit" value="Search" class="btn btn-success">
+    </div>
+<% end %>
 <div class="category">
   <table class="table table-hover">
     <thead>
@@ -13,46 +18,47 @@
     </tr>
     </thead>
     <tbody>
-    <% @articles.each do |b|%>
+    <% @articles.each do |b| %>
         <tr>
-            <td><%= b.id %></td>
-            <td><%= image_tag(b.img_url(:thumb),width: "100") if b.img? %></td>
-            <td><%= link_to b.title,
-                        {
-                            :controller => "articles",
-                            :action => "show",
-                            :id => "#{b.id}",
-                            :format=>"html"
-                        }
-                %></td>
+          <td><%= b.id %></td>
+          <td><%= image_tag(b.img, width: "60") if b.img? %></td>
+          <td><%= link_to b.title,
+                          {
+                                  :controller => "articles",
+                                  :action => "show",
+                                  :id => "#{b.id}",
+                                  :format => "html"
+                          }
+          %></td>
 
-            <td><%= b.created_at.to_s(:long) %></td>
-            <td></td>
-            <td>
-                <%= link_to "edit",
-                            {
-                                    :controller => "articles",
-                                    :action => "edit",
-                                    :id=>b.id
-                            },class: "btn btn-success"
-                %>
-                <%= link_to "destroy",
-                    {
-                        :controller => "articles",
-                        :action => "destroy",
-                        :id=>b.id
-                    },
-                    :method => 'delete',
-                    class: "btn btn-danger",
-                    data: { confirm: 'Are you sure?' }
-                %>
-            </td>
+          <td><%= b.created_at.to_s(:long) %></td>
+          <td></td>
+          <td>
+            <%= link_to "edit",
+                        {
+                                :controller => "articles",
+                                :action => "edit",
+                                :id => b.id
+                        }, class: "btn btn-success"
+            %>
+            <%= link_to "destroy",
+                        {
+                                :controller => "articles",
+                                :action => "destroy",
+                                :id => b.id
+                        },
+                        :method => 'delete',
+                        class: "btn btn-danger",
+                        data: {confirm: 'Are you sure?'}
+            %>
+          </td>
         </tr>
     <% end %>
 
     </tbody>
   </table>
-  <div class="pages">
-    <%= paginate @articles, :theme=>'long' %>
-  </div>
+</div>
+<div class="pages">
+  <%= paginate @articles, :theme => 'long' %>
+</div>
 </div>

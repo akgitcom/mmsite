@@ -50,6 +50,17 @@ class Admin::ArticlesController < Admin::ApplicationController
       render "edit"
     end
   end
+  def search
+    @page_title = "Search"
+    if params[:commit] == "Search" || params[:q]
+      # @products = Product.find_with_ferret(params[:q].to_s.upcase)
+      @articles = Article.where("title LIKE '%#{params[:q]}%'").order("aid DESC").page(params[:page]).per(5)
+      unless @articles.size > 0
+        flash.now[:notice] = "Not found"
+      end
+    end
+    render 'admin/articles/index'
+  end
   private
   def article_params
     params.require(:article).permit(

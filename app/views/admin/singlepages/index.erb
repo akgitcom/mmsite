@@ -1,11 +1,58 @@
-admin singlepage
-<div class="singlepage">
-  <ul>
+<h1>Singlepages</h1>
+<!--<a class="btn btn-primary btn-lg" href="/admin/singlepages/new">New Singlepage</a>-->
+<div class="category">
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>title</th>
+      <th>routename</th>
+      <th>created_at</th>
+      <th>operation</th>
+    </tr>
+    </thead>
+    <tbody>
     <% @singlepages.each do |b|%>
-        <li><%= link_to b.title,{:controller => "singlepages",:action => "show",:id => "#{b.sid}", :format=>"html"} %>    <%= link_to "edit",{:controller => "singlepages",:action => "edit",:id=>b.sid} %>  |  <%= link_to "destroy",{:controller => "singlepages",:action => "destroy",:id=>b.sid},:method => 'delete' %></li>
-
+        <tr>
+          <td><%= b.id %></td>
+        <td>
+          <%= link_to b.title,
+                      {
+                              :controller => "singlepages",
+                              :action => "show",
+                              :id => "#{b.sid}",
+                              :format=>"html"
+                      }
+          %>
+          </td>
+          <td><%= b.routename %></td>
+          <td><%= b.updated_at.to_s(:long)%></td>
+          <td>
+            <a target="_blank" href="/<%= b.routename %>" class="btn btn-info">view</a>
+            <%= link_to "edit",
+                      {
+                              :controller => "singlepages",
+                              :action => "edit",
+                              :id=>b.sid
+                      },
+                      class: "btn btn-success"
+            %>
+            <%= link_to "destroy",
+                      {
+                              :controller => "singlepages",
+                              :action => "destroy",
+                              :id=>b.sid
+                      },
+                      class: "btn btn-danger",
+                      :method => 'delete',
+                      data: { confirm: 'Are you sure?' }
+            %>
+        </td>
+        </tr>
     <% end %>
-  </ul>
+
+    </tbody>
+  </table>
   <div class="pages">
     <%= paginate @singlepages, :theme=>'long' %>
   </div>
