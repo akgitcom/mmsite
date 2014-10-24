@@ -1,0 +1,138 @@
+<%= form_for [:admin, @siteconfig], :html => {:multipart => true, class: "form-horizontal", role: "form"} do |f| -%>
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">Siteconfig</legend>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <%= label_tag(:seotitle, "Company Name", for: "inputcompanyname", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_field(:siteconfig, :companyname, class: "form-control", id: "inputcompanyname", placeholder: "Seotitle") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:keywords, "Home Title", for: "inputkeywords", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_field(:siteconfig, :keywords, class: "form-control", id: "inputkeywords", placeholder: "keywords") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:description, "Home Description", for: "inputdescription", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_area(:siteconfig, :description, cols: 20, rows: 4, class: "form-control", id: "inputdescription",) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:address, "address", for: "inputaddress", class: "col-sm-2 control-label") %>
+      <div class="col-sm-10">
+        <%= f.cktext_area :address, :class => 'form-control', :ckeditor => {:language => 'zh-CN'} %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+          <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+            <%= image_tag(@siteconfig.img) if @siteconfig.img? %>
+          </div>
+          <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+          <div>
+        <span class="btn btn-default btn-file">
+          <span class="fileinput-new">Select image</span>
+          <span class="fileinput-exists">Change</span>
+          <%= file_field(:siteconfig, :img) %>
+        </span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+          </div>
+        </div>
+        <script>
+            $('.fileinput').fileinput()
+        </script>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :remove_img, {}, 1, false %> Remove Img
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:article_title, "Article Title", for: "inputarticle_title", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_field(:siteconfig, :article_title, class: "form-control", id: "inputarticle_title", placeholder: "article_title") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:article_keywords, "Article Keywords", for: "inputarticle_keywords", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_area(:siteconfig, :article_keywords, cols: 20, rows: 4, class: "form-control", id: "inputarticle_keywords",) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:article_description, "Article Description", for: "inputarticle_description", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_area(:siteconfig, :article_description, cols: 20, rows: 4, class: "form-control", id: "inputarticle_description",) %>
+      </div>
+    </div>
+
+    <!--product-->
+    <div class="form-group">
+      <%= label_tag(:product_title, "Product Title", for: "inputproduct_title", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_field(:siteconfig, :product_title, class: "form-control", id: "inputproduct_title", placeholder: "product_title") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:product_keywords, "Product Keywords", for: "inputproduct_keywords", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_area(:siteconfig, :product_keywords, cols: 20, rows: 4, class: "form-control", id: "inputproduct_keywords",) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:product_description, "Product Description", for: "inputproduct_description", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_area(:siteconfig, :product_description, cols: 20, rows: 4, class: "form-control", id: "inputproduct_description",) %>
+      </div>
+    </div>
+
+    <!--guestbook-->
+    <div class="form-group">
+      <%= label_tag(:guestbook_title, "Guestbook Title", for: "inputguestbook_title", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_field(:siteconfig, :guestbook_title, class: "form-control", id: "inputguestbook_title", placeholder: "guestbook_title") %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:guestbook_keywords, "Guestbook Keywords", for: "inputguestbook_keywords", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_area(:siteconfig, :guestbook_keywords, cols: 20, rows: 4, class: "form-control", id: "inputguestbook_keywords",) %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag(:guestbook_description, "Guestbook Description", for: "inputguestbook_description", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_area(:siteconfig, :guestbook_description, cols: 20, rows: 4, class: "form-control", id: "inputguestbook_description",) %>
+      </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit 'Update Siteconfig', :class => 'btn btn-success btn-lg' %>
+      </div>
+    </div>
+<% end -%>

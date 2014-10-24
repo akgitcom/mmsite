@@ -21,7 +21,7 @@ module CategoriesHelper
 
 
   def topinyin(txt)
-    PinYin.abbr(txt)
+    PinYin.permlink(txt)
   end
 
   def display_categories(categories)

@@ -1,5 +1,10 @@
-<h1>Category</h1>
-<a class="btn btn-primary btn-lg" href="/admin/categories/new">New Category</a>
+<%= form_tag({controller: "admin/categories", action: "search"}, method: "get", class: "navbar-form navbar-left", role: "navigation") do %>
+    <div class="form-group">
+      <a class="btn btn-primary btn-lg" href="/admin/categories/new">New Category</a>
+      <input type="text" class="form-control" placeholder="category name" id="q" name="q">
+      <input name="commit" type="submit" value="Search" class="btn btn-success">
+    </div>
+<% end %>
 <div class="category">
     <table class="table table-hover">
       <thead>
@@ -7,6 +12,7 @@
         <th>#</th>
         <th>image</th>
         <th>title</th>
+        <th>routename</th>
         <th>created_at</th>
         <th>operation</th>
       </tr>
@@ -15,7 +21,7 @@
       <tr>
     <% @categories.each do |b|%>
           <tr>
-            <td><%= topinyin(b.title)%></td>
+            <td><%= b.id %></td>
             <td><%= image_tag(b.img_url(:thumb),width: "100") if b.img? %></td>
             <td><%= link_to b.title,
                             {
@@ -26,7 +32,8 @@
                             }
                 %>
             </td>
-            <td></td>
+            <td><%=topinyin(b.title)%></td>
+            <td><%=b.created_at.to_s(:long)%></td>
             <td>
               <a target="_blank" href="/<%= b.routename %>" class="btn btn-info">view</a>
               <%= link_to "edit",

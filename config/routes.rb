@@ -29,10 +29,11 @@ Rails.application.routes.draw do
 
   get 'admin/products/search' => 'admin/products#search'
   get 'admin/articles/search' => 'admin/articles#search'
+  get 'admin/categories/search' => 'admin/categories#search'
 
   namespace :admin do
-    root to: "home#index"
-    resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home, :photos
+    root to: "singlepages#index"
+    resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home, :photos,:siteconfigs
 
     get 'users/:id' => 'users#show'
     get 'users/page/:page' => 'users#index'

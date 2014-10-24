@@ -1,56 +1,144 @@
-<%= form_for [:admin, @category], :html => {:multipart => true} do |f| -%>
-    <%= label_tag(:parent_id, "所属分类") %>
-    <%= f.select :parent_id,
-                 nested_set_options(Category) {|i| "#{'-' * i.level} #{i.title}" },
-                 :selected => @category.parent_id,
-                 :disabled => @category.id,
-                 :include_blank => '===请选择==='#.inspect
-    %><br/>
-    <%= label_tag(:title, "SEO标题") %>
-    <%= text_field(:category, :seotitle) %> <br/>
+<%= form_for [:admin, @category], :html => {:multipart => true, class: "form-horizontal", role: "form"} do |f| -%>
+    <fieldset>
+      <div id="legend" class="">
+        <legend class="">Category Edit</legend>
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <%= label_tag(:parent_id, "Select Parent Category", for: "inputproduct_ids", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= f.select :parent_id,
+                     nested_set_options(Category) {|i| "#{'-' * i.level} #{i.title}" },
+                     {:selected => @category.parent_id,
+                      :disabled => @category.id,
+                      :include_blank => '===请选择==='},#.inspect},
+                     {class: 'form-control'}
+        %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:seotitle, "SEO Title", for: "inputseotitle", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_field(:category, :seotitle, class: "form-control", id: "inputseotitle", placeholder: "Seotitle") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:keywords, "SEO Keywords", for: "inputkeywords", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_field(:category, :keywords, class: "form-control", id: "inputkeywords", placeholder: "keywords") %>
+      </div>
+    </div>
 
-    <%= label_tag(:title, "SEO关键字") %>
-    <%= text_field(:category, :keywords) %><br/>
+    <div class="form-group">
+      <%= label_tag(:description, "SEO Description", for: "inputdescription", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_area(:category, :description, cols: 20, rows: 4, class: "form-control", id: "inputdescription",) %>
+      </div>
+    </div>
 
-    <%= label_tag(:title, "SEO描述") %>
-    <%= text_area(:category, :description, cols: 20, rows: 4) %><br/>
+    <div class="form-group">
+      <%= label_tag(:title, "Category Name", for: "inputtitle", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= text_field(:category, :title, class: "form-control", id: "inputtitle", placeholder: "title") %>
+      </div>
+    </div>
 
-    <%= label_tag(:title, "分类名称") %>
-    <%= text_field(:category, :title) %><br/>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+          <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+            <%= image_tag(@category.img) if @category.img? %>
+          </div>
+          <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+          <div>
+        <span class="btn btn-default btn-file">
+          <span class="fileinput-new">Select image</span>
+          <span class="fileinput-exists">Change</span>
+          <%= file_field(:category, :img) %>
+        </span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+          </div>
+        </div>
+        <script>
+            $('.fileinput').fileinput()
+        </script>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :remove_img %>  Remove img
+          </label>
+        </div>
+      </div>
+    </div>
 
-    <%= label_tag(:title, "图片") %>
-    <%= image_tag(@category.img) if @category.img? %>
-    <%= file_field(:category, :img) %><br/>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+          <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+            <%= image_tag(@category.img_url(:thumb)) if @category.img? %>
+          </div>
+          <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+          <div>
+        <span class="btn btn-default btn-file">
+          <span class="fileinput-new">Select image</span>
+          <span class="fileinput-exists">Change</span>
+          <%= file_field(:category, :thumb) %>
+        </span>
+            <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+          </div>
+        </div>
+        <script>
+            $('.fileinput').fileinput()
+        </script>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <%= check_box_tag :remove_thumb %>  Remove Thumb
+          </label>
+        </div>
+      </div>
+    </div>
 
-    <p>
-      <label>
-        <%= f.check_box :remove_img %>
-        Remove img
-      </label>
-    </p>
+    <div class="form-group">
+      <%= label_tag(:content, "内容", for: "inputcontent", class: "col-sm-2 control-label") %>
+      <div class="col-sm-10">
+        <%= f.cktext_area :content, :class => 'form-control', :ckeditor => {:language => 'zh-CN'} %>
+      </div>
+    </div>
 
-    <%= label_tag(:title, "缩略图") %>
-    <%= image_tag(@category.img_url(:thumb)) if @category.img? %>
-    <%= file_field(:category, :thumb) %><br/>
-    <p>
-      <label>
-        <%= check_box_tag :remove_thumb %>
-        Remove img
-      </label>
-    </p>
+    <div class="form-group">
+      <%= label_tag(:sort, "排序", for: "inputsort", class: "col-sm-2 control-label") %>
+      <div class="col-sm-4">
+        <%= f.number_field(:sort, class: "form-control", id: "inputsort", placeholder: "sort") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:routename, "Route Name", for: "inputroutename", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
+        <%= f.text_field(:routename, class: "form-control", id: "inputroutename", placeholder: "Route Name") %>
+      </div>
+    </div>
 
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :sblock, {}, 1, false %> Lock
+          </label>
+        </div>
+      </div>
+    </div>
 
-    <%= label_tag(:title, "内容") %>
-    <%= f.cktext_area :content, :class => 'content', :ckeditor => {:language => 'zh-CN'} %><br/>
-
-    <%= label_tag(:title, "排序") %>
-    <%= f.number_field :sort %><br/>
-
-    <%= label_tag(:title, "路由名称") %>
-    <%= f.text_field :routename %><br/>
-
-    <%= label_tag(:title, "锁定") %>
-    <%= f.check_box :sblock, {}, 1, false %><br/>
-    <%= f.submit %>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit 'Add article', :class => 'btn btn-success btn-lg' %>
+      </div>
+    </div>
 
 <% end -%>

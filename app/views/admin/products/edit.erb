@@ -5,14 +5,12 @@
       </div>
     </fieldset>
     <div class="form-group">
-      <%= label_tag(:category_id, "所属分类", for: "inputproduct_ids", class: "col-sm-2 control-label") %>
-      <div class="col-sm-10">
+      <%= label_tag(:category_id, "Select Category", for: "inputproduct_ids", class: "col-sm-2 control-label") %>
+      <div class="col-sm-6">
         <%= f.select :category_id,
-                     nested_set_options(Category) {|i| "#{'-' * i.level} #{i.title}" },
-                     :selected => @product.category_id,
-                     :include_blank=>'===请选择===',#.inspect
-                     class: "form-control"
-
+            nested_set_options(Category) {|i| "#{'-' * i.level} #{i.title}" },
+            {:selected => @product.category_id,:include_blank=>'===Select Parent Category==='},
+            {class: 'form-control'}
         %>
       </div>
     </div>

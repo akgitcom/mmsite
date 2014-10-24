@@ -5,9 +5,9 @@ class Admin::CategoriesController < Admin::ApplicationController
   helper_method :pinyin
 
   def index
-    @categories = Category.order("id DESC").page(params[:page]).per(5)
+    @categories = Category.order("id DESC").page(params[:page]).per(10)
     @title = 'Category manage'
-    Category.rebuild!
+    # Category.rebuild!
   end
 
   def show
@@ -20,8 +20,10 @@ class Admin::CategoriesController < Admin::ApplicationController
 
   def create
     category = Category.new(category_params)
+
     if category.save
       flash[:notice] = "Category has been created."
+      redirect_to admin_categories_url
     end
   end
 
@@ -38,13 +40,24 @@ class Admin::CategoriesController < Admin::ApplicationController
   end
 
   def update
-    puts "fuck==============================#{params[:parent_id]}"
     @category = Category.find_by_id(params[:id])
     if @category.update(category_params)
       redirect_to [:admin, @category]
     else
       render "edit"
     end
+  end
+
+  def search
+    @page_title = "Search"
+    if params[:commit] == "Search" || params[:q]
+      # @products = Product.find_with_ferret(params[:q].to_s.upcase)
+      @categories = Category.where("title LIKE '%#{params[:q]}%'").order("id DESC").page(params[:page]).per(5)
+      unless @categories.size > 0
+        flash.now[:notice] = "Not found"
+      end
+    end
+    render 'admin/categories/index'
   end
 
   private
