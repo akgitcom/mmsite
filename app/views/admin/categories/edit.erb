@@ -11,7 +11,7 @@
                      nested_set_options(Category) {|i| "#{'-' * i.level} #{i.title}" },
                      {:selected => @category.parent_id,
                       :disabled => @category.id,
-                      :include_blank => '===请选择==='},#.inspect},
+                      :include_blank => '===Select Parent Category==='},#.inspect},
                      {class: 'form-control'}
         %>
       </div>

@@ -1,10 +1,12 @@
-<%= form_tag({controller: "admin/articles", action: "search"}, method: "get", class: "navbar-form navbar-left", role: "navigation") do %>
+<div class="container">
+  <%= form_tag({controller: "admin/articles", action: "search"}, method: "get", class: "navbar-form navbar-left", role: "navigation") do %>
     <div class="form-group">
       <a class="btn btn-primary btn-lg" href="/admin/articles/new">New Article</a>
-      <input type="text" class="form-control" placeholder="请输入产品名称" id="q" name="q">
+      <input type="text" class="form-control" placeholder="Article Title" id="q" name="q">
       <input name="commit" type="submit" value="Search" class="btn btn-success">
     </div>
 <% end %>
+</div>
 <div class="category">
   <table class="table table-hover">
     <thead>
@@ -32,7 +34,21 @@
           %></td>
 
           <td><%= b.created_at.to_s(:long) %></td>
-          <td></td>
+          <td>
+            <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-small bootstrap-switch-animate">
+              <div class="bootstrap-switch-container" style="">
+                <input type="checkbox" name="lock_<%=b.id%>" <% if b.sblock === true %>checked<% end %> data-size="small" data-on-text="ON" data-off-text="OFF">
+              </div>
+            </div>
+            <script>
+                $('input[name="lock_<%=b.id%>"]').bootstrapSwitch();
+                $('input[name="lock_<%=b.id%>"]').on('switchChange.bootstrapSwitch', function(event, state) {
+                    $.post('/admin/articles/state',{ state: state ,aid:<%=b.id%> }, function(data) {
+                        alert("message:" + data + <%=b.id%>);
+                    });
+                });
+            </script>
+          </td>
           <td>
             <%= link_to "edit",
                         {

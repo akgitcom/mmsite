@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get 'admin/products/search' => 'admin/products#search'
   get 'admin/articles/search' => 'admin/articles#search'
   get 'admin/categories/search' => 'admin/categories#search'
-
+  post 'admin/articles/state' => 'admin/articles#state'
   namespace :admin do
     root to: "singlepages#index"
     resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home, :photos,:siteconfigs

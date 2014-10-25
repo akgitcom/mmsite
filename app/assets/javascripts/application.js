@@ -13,8 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
+//= require jasny-bootstrap.min
+//= require bootstrap-switch.min
 //= require turbolinks
 //= require_tree .
 //= require ckeditor/init
 //= require ckeditor/ckeditor
-//= require jasny-bootstrap.min
+
+
