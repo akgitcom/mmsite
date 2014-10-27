@@ -14,7 +14,7 @@
       <th>#</th>
       <th>image</th>
       <th>title</th>
-      <th>created_at</th>
+      <th>updated_at</th>
       <th>status</th>
       <th>operation</th>
     </tr>
@@ -33,7 +33,7 @@
                           }
           %></td>
 
-          <td><%= b.created_at.to_s(:long) %></td>
+          <td><%= b.updated_at.to_s(:long) %></td>
           <td>
             <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-small bootstrap-switch-animate">
               <div class="bootstrap-switch-container" style="">
@@ -44,7 +44,6 @@
                 $('input[name="lock_<%=b.id%>"]').bootstrapSwitch();
                 $('input[name="lock_<%=b.id%>"]').on('switchChange.bootstrapSwitch', function(event, state) {
                     $.post('/admin/articles/state',{ state: state ,aid:<%=b.id%> }, function(data) {
-                        alert("message:" + data + <%=b.id%>);
                     });
                 });
             </script>

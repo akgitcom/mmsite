@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  devise_for :users, :path => "admin"
+  devise_for :users, :path => "/admin/users"
     # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -31,6 +31,10 @@ Rails.application.routes.draw do
   get 'admin/articles/search' => 'admin/articles#search'
   get 'admin/categories/search' => 'admin/categories#search'
   post 'admin/articles/state' => 'admin/articles#state'
+  post 'admin/categories/state' => 'admin/categories#state'
+  post 'admin/products/state' => 'admin/products#state'
+  post 'admin/products/homepage' => 'admin/products#homepage'
+
   namespace :admin do
     root to: "singlepages#index"
     resources :users, :articles, :products, :downloads, :faqs, :categories, :singlepages, :home, :photos,:siteconfigs

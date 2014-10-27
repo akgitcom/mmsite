@@ -70,6 +70,25 @@ class Admin::ProductsController < Admin::ApplicationController
     end
     render 'admin/products/index'
   end
+
+  def state
+    product = Product.find(params[:id])
+    if product.update_attributes!(sblock: params[:state])
+      respond_to do |format|
+        format.json { render :json => {'success'=>product.title}, :content_type => 'application/json'}
+      end
+    end
+  end
+
+  def homepage
+    product = Product.find(params[:id])
+    if product.update_attributes!(homepage: params[:state])
+      respond_to do |format|
+        format.json { render :json => {'success'=>product.title}, :content_type => 'application/json'}
+      end
+    end
+  end
+
   private
   def product_params
     params.require(:product).permit(
@@ -85,6 +104,7 @@ class Admin::ProductsController < Admin::ApplicationController
         :sort,
         :seotitle,
         :routename,
+        :homepage,
         faq_ids: []
     )
   end

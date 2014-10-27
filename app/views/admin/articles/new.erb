@@ -6,28 +6,28 @@
     </fieldset>
 
     <div class="form-group">
-      <%= label_tag(:seotitle, "SEO标题", for: "inputseotitle", class: "col-sm-2 control-label") %>
+      <%= label_tag(:seotitle, "SEO Title", for: "inputseotitle", class: "col-sm-2 control-label") %>
       <div class="col-sm-6">
         <%= text_field(:article, :seotitle, class: "form-control", id: "inputseotitle", placeholder: "Seotitle") %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= label_tag(:keywords, "SEO关键字", for: "inputkeywords", class: "col-sm-2 control-label") %>
+      <%= label_tag(:keywords, "SEO Keywords", for: "inputkeywords", class: "col-sm-2 control-label") %>
       <div class="col-sm-6">
         <%= text_field(:article, :keywords, class: "form-control", id: "inputkeywords", placeholder: "keywords") %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= label_tag(:description, "SEO描述", for: "inputdescription", class: "col-sm-2 control-label") %>
+      <%= label_tag(:description, "SEO Description", for: "inputdescription", class: "col-sm-2 control-label") %>
       <div class="col-sm-6">
         <%= text_area(:article, :description, cols: 20, rows: 4, class: "form-control", id: "inputdescription",) %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= label_tag(:title, "标题", for: "inputtitle", class: "col-sm-2 control-label") %>
+      <%= label_tag(:title, "Title", for: "inputtitle", class: "col-sm-2 control-label") %>
       <div class="col-sm-6">
         <%= text_field(:article, :title, class: "form-control", id: "inputtitle", placeholder: "title") %>
       </div>
@@ -56,33 +56,33 @@
     </div>
 
     <div class="form-group">
-      <%= label_tag(:shortcontent, "简述", for: "inputshortcontent", class: "col-sm-2 control-label") %>
+      <%= label_tag(:shortcontent, "Brief", for: "inputshortcontent", class: "col-sm-2 control-label") %>
       <div class="col-sm-10">
         <%= f.cktext_area :shortcontent, :class => 'form-control', :ckeditor => {:language => 'zh-CN'} %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= label_tag(:content, "内容", for: "inputcontent", class: "col-sm-2 control-label") %>
+      <%= label_tag(:content, "Content", for: "inputcontent", class: "col-sm-2 control-label") %>
       <div class="col-sm-10">
         <%= f.cktext_area :content, :class => 'form-control', :ckeditor => {:language => 'zh-CN'} %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= label_tag(:sort, "排序", for: "inputsort", class: "col-sm-2 control-label") %>
+      <%= label_tag(:sort, "Sort by", for: "inputsort", class: "col-sm-2 control-label") %>
       <div class="col-sm-4">
         <%= f.number_field(:sort, class: "form-control", id: "inputsort", placeholder: "sort") %>
       </div>
     </div>
     <div class="form-group">
-      <%= label_tag(:searchkey, "相关新闻关键字", for: "inputsearchkey", class: "col-sm-2 control-label") %>
+      <%= label_tag(:searchkey, "Related Articles Keywords", for: "inputsearchkey", class: "col-sm-2 control-label") %>
       <div class="col-sm-6">
         <%= f.text_field(:searchkey, class: "form-control", id: "inputsearchkey", placeholder: "searchkey") %>
       </div>
     </div>
     <div class="form-group">
-      <%= label_tag(:product_ids, "相关产品", for: "inputproduct_ids", class: "col-sm-2 control-label") %>
+      <%= label_tag(:product_ids, "Related Products", for: "inputproduct_ids", class: "col-sm-2 control-label") %>
       <div class="col-sm-6">
         <%= f.select :product_ids, Product.all.collect { |x| [x.title, x.id] },
                      {:selected => @relateproducts.all.collect { |u| u.id }},
@@ -96,11 +96,12 @@
       <div class="col-sm-offset-2 col-sm-10">
         <div class="checkbox">
           <label>
-            <%= f.check_box :sblock, {}, 1, false %> 锁定
+            <%= f.check_box :sblock, {}, 1, false %> Lock
           </label>
         </div>
       </div>
     </div>
+
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">

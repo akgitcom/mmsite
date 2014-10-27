@@ -12,7 +12,9 @@
       <th>#</th>
       <th>image</th>
       <th>title</th>
-      <th>created_at</th>
+      <th>updated_at</th>
+      <th>status</th>
+      <th>homepage</th>
       <th>operation</th>
     </tr>
     </thead>
@@ -42,6 +44,34 @@
             %>
           </td>
           <td><%= b.updated_at.to_s(:long)%></td>
+          <td>
+            <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-small bootstrap-switch-animate">
+              <div class="bootstrap-switch-container" style="">
+                <input type="checkbox" name="lock_<%=b.id%>" <% if b.sblock === true %>checked<% end %> data-size="small" data-on-text="ON" data-off-text="OFF">
+              </div>
+            </div>
+            <script>
+                $('input[name="lock_<%=b.id%>"]').bootstrapSwitch();
+                $('input[name="lock_<%=b.id%>"]').on('switchChange.bootstrapSwitch', function(event, state) {
+                    $.post('/admin/products/state',{ state: state ,id:<%=b.id%> }, function(data) {
+                    });
+                });
+            </script>
+          </td>
+          <td>
+            <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-small bootstrap-switch-animate">
+              <div class="bootstrap-switch-container" style="">
+                <input type="checkbox" name="home_<%=b.id%>" <% if b.homepage === true %>checked<% end %> data-size="small" data-on-text="ON" data-off-text="OFF">
+              </div>
+            </div>
+            <script>
+                $('input[name="home_<%=b.id%>"]').bootstrapSwitch();
+                $('input[name="home_<%=b.id%>"]').on('switchChange.bootstrapSwitch', function(event, state) {
+                    $.post('/admin/products/homepage',{ state: state ,id:<%=b.id%> }, function(data) {
+                    });
+                });
+            </script>
+          </td>
           <td>
             <%= link_to "edit",
                         {

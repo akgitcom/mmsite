@@ -60,6 +60,15 @@ class Admin::CategoriesController < Admin::ApplicationController
     render 'admin/categories/index'
   end
 
+  def state
+    category = Category.find(params[:id])
+    if category.update_attributes!(sblock: params[:state])
+      respond_to do |format|
+        format.json { render :json => {'success'=>category.title}, :content_type => 'application/json'}
+      end
+    end
+  end
+
   private
   def category_params
     params.require(:category).permit(

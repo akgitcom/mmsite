@@ -167,6 +167,16 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label>
+            <%= f.check_box :homepage, {}, 1, false %> Homepage
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
         <%= f.submit 'Add article', :class => 'btn btn-success btn-lg' %>
       </div>
     </div>

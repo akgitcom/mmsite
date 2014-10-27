@@ -20,6 +20,9 @@ module Mmsite
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.enforce_available_locales = true
     # # or if one of your gem compete for pre-loading, use
+    config.time_zone = 'Beijing'
+    config.active_record.default_timezone = :local
+
     I18n.config.enforce_available_locales = false
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     config.i18n.default_locale = :'zh-CN'
@@ -32,5 +35,15 @@ module Mmsite
     config.assets.precompile += %w(ckeditor/*)
 
     config.assets.paths << "#{Rails}/vendor/assets/fonts"
+
+    # 指定devise的layout
+    config.to_prepare do
+      Devise::SessionsController.layout "admin"
+      Devise::RegistrationsController.layout "admin"
+      Devise::ConfirmationsController.layout "admin"
+      Devise::UnlocksController.layout "admin"
+      Devise::PasswordsController.layout "admin"
+    end
+
   end
 end

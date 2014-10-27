@@ -71,10 +71,6 @@ class Admin::ArticlesController < Admin::ApplicationController
       respond_to do |format|
         format.json { render :json => {'success'=>article.title}, :content_type => 'application/json'}
       end
-    # else
-    #   respond_to do |format|
-    #     format.json { render :json => {'error'=>$ERROR_INFO}, :content_type => 'application/json'}
-    #   end
     end
   end
 

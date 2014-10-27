@@ -13,7 +13,8 @@
         <th>image</th>
         <th>title</th>
         <th>routename</th>
-        <th>created_at</th>
+        <th>updated_at</th>
+        <th>status</th>
         <th>operation</th>
       </tr>
       </thead>
@@ -33,7 +34,21 @@
                 %>
             </td>
             <td><%=topinyin(b.title)%></td>
-            <td><%=b.created_at.to_s(:long)%></td>
+            <td><%=b.updated_at.to_s(:long)%></td>
+            <td>
+              <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-small bootstrap-switch-animate">
+                <div class="bootstrap-switch-container" style="">
+                  <input type="checkbox" name="lock_<%=b.id%>" <% if b.sblock === true %>checked<% end %> data-size="small" data-on-text="ON" data-off-text="OFF">
+                </div>
+              </div>
+              <script>
+                  $('input[name="lock_<%=b.id%>"]').bootstrapSwitch();
+                  $('input[name="lock_<%=b.id%>"]').on('switchChange.bootstrapSwitch', function(event, state) {
+                      $.post('/admin/categories/state',{ state: state ,id:<%=b.id%> }, function(data) {
+                      });
+                  });
+              </script>
+            </td>
             <td>
               <a target="_blank" href="/<%= b.routename %>" class="btn btn-info">view</a>
               <%= link_to "edit",
